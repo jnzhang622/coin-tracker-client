@@ -17,13 +17,13 @@ class CoinContainer extends React.Component {
     }
     handleChange = (e) => {
         if (e.target.name === "sort") {
-            this.setState({ renderSort: e.target.name })
-            // console.log(e.target)
+            this.setState({ sort: e.target.value })
+            console.log(e.target.value)
         }
         if (e.target.name === "filter") {
             this.setState({ filter: e.target.value })
             this.setState({ render100: 0 })
-            console.log(e.target)
+            // console.log(e.target)
         }
     }
 
@@ -42,12 +42,24 @@ class CoinContainer extends React.Component {
                 coin.name.toLowerCase().includes(this.state.filter.toLowerCase())
             )
         })
-        return arrayToReturn
-        // return this.sortControl(arrayToReturn)
+        // return arrayToReturn
+        return this.sortControl(arrayToReturn)
     }
 
-    sortControl = () => {
-        ""
+    sortControl = (array) => {
+        let currentCoins = [...array]
+        if (this.state.renderSort === "None") {
+            currentCoins = [...array]
+        } 
+        else if (this.state.sort === "price") {
+            currentCoins = currentCoins.sort((a, b) => parseFloat(a.price) > parseFloat(b.price) ? -1 : 1)
+        } 
+        else if (this.state.sort === "price_change_pct") {
+            // // console.log(currentCoins.slice(0, 10).map(a => parseFloat(a['1d'].price_change_pct)))
+            // currentCoins = currentCoins.sort((a, b) => 
+            //     parseFloat(a['1d'].price_change_pct) > parseFloat(b['1d'].price_change_pct) ? -1 : 1)
+        }
+        return currentCoins
     }
 
     filter = (arr, render100) => {
@@ -56,6 +68,7 @@ class CoinContainer extends React.Component {
     
 
     render() {
+        // console.log(this.state.coins.slice(0, 10).map(a => a['1d'].price_change_pct))
         return (
             <div>
                 <h1>Crypto Currencies</h1>

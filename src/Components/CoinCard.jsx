@@ -3,7 +3,7 @@ import React from 'react';
 class CoinCard extends React.Component {
 
     render() {
-        let { name, logo_url } = this.props.coin
+        let { name, price, logo_url } = this.props.coin
         return (
             <li className="cards_item">
                 <div className="card">
@@ -15,6 +15,7 @@ class CoinCard extends React.Component {
 
                     <div className="card__content">
                         <div className="card__title">{name}</div>
+                        <div className="card__info">Price: ${parseFloat(price).toFixed(2)}</div>
                         {/* <label>Tags:</label>
                         {tags.map(t => <a className="card__info" key={t.id}>  {(t.name)}</a>)}
                         <select className="add-tag-dropdown"></select> */}

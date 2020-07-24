@@ -49,14 +49,14 @@
 
 .card__title {
   color: #696969;
-  font-size: .5rem;
+  font-size: .7rem;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 .card__info {
   color: #696969;
-  font-size: 1rem;
+  font-size: .5rem;
   font-weight: 300;
   letter-spacing: 2px;
 }
