@@ -2,8 +2,19 @@ import React from 'react';
 
 class CoinCard extends React.Component {
 
+    renderPrice = () => {
+        if (this.props.sort === "price") {
+            return (<div className="card__info">Price: ${parseFloat(this.props.coin.price).toFixed(2)}</div>)
+        }
+    }
+
+    renderPricePercentChange = () => {
+        if (this.props.coin['1d'] && this.props.sort === "price_change_pct") {
+            return (<div className="card__info">Change%: {this.props.coin['1d'].price_change_pct}%</div>)}}
+
     render() {
-        let { name, price, logo_url } = this.props.coin
+        // console.log(this.props.coin['1d'].price_change_pct)
+        let { name, price, logo_url, rank} = this.props.coin
         return (
             <li className="cards_item">
                 <div className="card">
@@ -15,7 +26,11 @@ class CoinCard extends React.Component {
 
                     <div className="card__content">
                         <div className="card__title">{name}</div>
-                        <div className="card__info">Price: ${parseFloat(price).toFixed(2)}</div>
+                        <div className="card__info">Rank:{rank}</div><br/>
+                        {this.renderPrice()}
+                        {this.renderPricePercentChange()}
+                        
+                        {/* <div className="card__info">{this.props.coin['1d'].price_change_pct}</div> */}
                         {/* <label>Tags:</label>
                         {tags.map(t => <a className="card__info" key={t.id}>  {(t.name)}</a>)}
                         <select className="add-tag-dropdown"></select> */}

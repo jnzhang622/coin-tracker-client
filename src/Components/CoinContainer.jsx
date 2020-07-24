@@ -18,7 +18,7 @@ class CoinContainer extends React.Component {
     handleChange = (e) => {
         if (e.target.name === "sort") {
             this.setState({ sort: e.target.value })
-            console.log(e.target.value)
+            // console.log(e.target.value)
         }
         if (e.target.name === "filter") {
             this.setState({ filter: e.target.value })
@@ -54,10 +54,14 @@ class CoinContainer extends React.Component {
         else if (this.state.sort === "price") {
             currentCoins = currentCoins.sort((a, b) => parseFloat(a.price) > parseFloat(b.price) ? -1 : 1)
         } 
-        else if (this.state.sort === "price_change_pct") {
-            // // console.log(currentCoins.slice(0, 10).map(a => parseFloat(a['1d'].price_change_pct)))
-            // currentCoins = currentCoins.sort((a, b) => 
-            //     parseFloat(a['1d'].price_change_pct) > parseFloat(b['1d'].price_change_pct) ? -1 : 1)
+        else if (this.state.sort === "price_change_pct") { 
+            let filteredCoins = currentCoins.filter(coin => coin['1d'] ) 
+            // console.log(currentCoins.slice(0, 10).map(a => parseFloat(a['1d'].price_change_pct)))
+            //currentCoins = currentCoins.map(a => {
+                //if (!a['1d'].price_change_pct) {a['1d'].price_change_pct = "0.0"}
+            // })
+            currentCoins = filteredCoins.sort((a, b) => 
+             parseFloat(a['1d'].price_change_pct) > parseFloat(b['1d'].price_change_pct) ? -1 : 1)
         }
         return currentCoins
     }
@@ -81,7 +85,7 @@ class CoinContainer extends React.Component {
                 <div className="cards">
                     {
                         this.filter(this.returnsArray(), this.state.render100).map(coin => {
-                            return <CoinCard key={coin.id} coin={coin}/> })
+                            return <CoinCard key={coin.id} coin={coin} sort={this.state.sort}/> })
                     }
                 </div>
             </div>
