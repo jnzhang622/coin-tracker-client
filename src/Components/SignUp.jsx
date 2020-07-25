@@ -17,7 +17,7 @@ class SignUp extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-  if (this.state.password === this.state.passwordConfirmation){
+  if (this.state.password === this.state.passwordConfirmation && this.state.username){
     fetch("http://localhost:3001/api/v1/login", {
       method: "POST",
       headers: {
@@ -31,8 +31,10 @@ class SignUp extends React.Component {
     })
     .then(res => res.json())
     .then(console.log)
+    this.props.history.push('/coins')
+
   } else {
-    alert("Passwords don't match.")
+    alert("Passwords don't match! User name can't be empty!")
    }
 
   }
@@ -41,9 +43,10 @@ class SignUp extends React.Component {
     return (
       <div className="center-form">
         <form className="auth-form" onSubmit={this.handleSubmit}>
-          <input name="username" value={this.state.username} onChange={this.handleChange}placeholder="username"/>
-          <input name="password" value={this.state.password} type="password"  onChange={this.handleChange}placeholder="password"/>
-          <button className="login" type="submit">Log In</button>
+        <input name="username" value={this.state.username} onChange={this.handleChange}placeholder="username"/>
+        <input name="password" value={this.state.password} type="password"  onChange={this.handleChange}placeholder="password"/>
+        <input name="passwordConfirmation" value={this.state.passwordConfirmation} type="password"  onChange={this.handleChange}placeholder="confirm password"/>
+        <button className="login" type="submit">Log In</button>
         </form>
       </div>
     )
