@@ -75,7 +75,6 @@ class CoinContainer extends React.Component {
         // console.log(this.state.coins.slice(0, 10).map(a => a['1d'].price_change_pct))
         return (
             <div>
-                <h1>Crypto Currencies</h1>
                 <SearchBar
                     filter={this.state.filter}
                     handleChange={this.handleChange}

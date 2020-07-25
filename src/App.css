@@ -130,7 +130,7 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: #fe8a71;
+  color: #3282b8;
 }
 
 .logo {
@@ -152,9 +152,47 @@ a:visited {
 }
 
 .Link:hover {
-   background-color: #faf0af;
+   background-color: #f3ecc2;
    transition-duration: 1s;
  }
+
+ .center-form {
+  background: #f1f1f1;
+  max-width: 360px;
+  margin: 0 auto 25px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+ input[type=text]:focus, input[type=password]:focus {
+  position: relative;
+  background-color: #ddd;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+input[type=text], input[type=password], input[type=username]{
+ position: relative;
+ width: 100%;
+ padding: 12px 20px;
+ margin: 8px 0;
+ box-sizing: border-box;
+}
+
+button {
+  background-color: #febf63;
+  color: white;
+  padding: 14px 75px;
+  margin: 8px 0;
+  border: solid;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+}
+
 /* .submit {
   position: relative;
   background-color: #e04b52;
