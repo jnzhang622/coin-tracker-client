@@ -79,7 +79,7 @@ class CoinContainer extends React.Component {
                     filter={this.state.filter}
                     handleChange={this.handleChange}
                 />
-                <button onClick={this.lastCoin}>Last 100</button>
+                <button onClick={this.lastCoin}>Previous 100</button>
                 <button onClick={this.nextCoin}>Next 100</button>
                 <div className="cards">
                     {

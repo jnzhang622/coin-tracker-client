@@ -7,8 +7,19 @@ import './App.css';
 
 
 class App extends React.Component {
+ state = {
+   currentUser: null
+ }
+
+setUser = (user) => {
+  this.setState({
+     currentUser: user
+  },()=> this.props.history.push('/coins'))
+
+}
 
   render(){
+    console.log(this.props)
     return (
       <div >
       <Navbar />
@@ -16,7 +27,7 @@ class App extends React.Component {
         <Route exact path="/"component={CoinContainer}/>
         <Route exact path="/coins" component={CoinContainer}/>
         <Route exact path="/exchanges" component={CoinContainer}/>
-        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/signup" render={(routerProps)=> <SignUp setUser={this.setUser} {...routerProps}/>}/>
        </Switch>
       </div>
     )

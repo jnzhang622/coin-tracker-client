@@ -18,7 +18,7 @@ class SignUp extends React.Component {
     e.preventDefault()
 
   if (this.state.password === this.state.passwordConfirmation && this.state.username){
-    fetch("http://localhost:3001/api/v1/login", {
+    fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -30,8 +30,13 @@ class SignUp extends React.Component {
       })
     })
     .then(res => res.json())
-    .then(console.log)
-    this.props.history.push('/coins')
+    .then(data => {
+       if(data.errors){
+         alert(data.errors)
+       } else {
+         this.props.setUser(data)
+       }
+     })
 
   } else {
     alert("Passwords don't match! User name can't be empty!")
