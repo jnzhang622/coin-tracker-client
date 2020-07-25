@@ -1,13 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
-const Navbar = props => {
+import logo from './coin_market_watch_logo.png';
+const NavBar = props => {
     return (
-        <div className="navbar">
-            <Link to="/">🐱</Link>
-            <Link to="/login">Login</Link>
+        <>
+        <div className="logo">
+         <img src={logo} alt="Logo" />
         </div>
+        <div className="navbar">
+            <Link className="Link"to="/coins">Coins</Link>
+            <Link className="Link"to="/exchanges">Exchanges</Link>
+            <Link className="Link"to="/login">Login</Link>
+            <Link className="Link"to="/signup">Sign Up</Link>
+        </div>
+        </>
     )
 }
 
-export default Navbar;
+export default NavBar

@@ -124,7 +124,37 @@ img {
   flex-wrap: wrap
 }
 
+a:link {
+  color: #0e9aa7;
+}
 
+/* visited link */
+a:visited {
+  color: #fe8a71;
+}
+
+.logo {
+  display: block;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  filter: grayscale(25%);
+}
+
+.navbar {
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+
+}
+
+.Link:hover {
+   background-color: #faf0af;
+   transition-duration: 1s;
+ }
 /* .submit {
   position: relative;
   background-color: #e04b52;

@@ -50,17 +50,17 @@ class CoinContainer extends React.Component {
         let currentCoins = [...array]
         if (this.state.renderSort === "None") {
             currentCoins = [...array]
-        } 
+        }
         else if (this.state.sort === "price") {
             currentCoins = currentCoins.sort((a, b) => parseFloat(a.price) > parseFloat(b.price) ? -1 : 1)
-        } 
-        else if (this.state.sort === "price_change_pct") { 
-            let filteredCoins = currentCoins.filter(coin => coin['1d'] ) 
+        }
+        else if (this.state.sort === "price_change_pct") {
+            let filteredCoins = currentCoins.filter(coin => coin['1d'] )
             // console.log(currentCoins.slice(0, 10).map(a => parseFloat(a['1d'].price_change_pct)))
             //currentCoins = currentCoins.map(a => {
                 //if (!a['1d'].price_change_pct) {a['1d'].price_change_pct = "0.0"}
             // })
-            currentCoins = filteredCoins.sort((a, b) => 
+            currentCoins = filteredCoins.sort((a, b) =>
              parseFloat(a['1d'].price_change_pct) > parseFloat(b['1d'].price_change_pct) ? -1 : 1)
         }
         return currentCoins
@@ -69,7 +69,7 @@ class CoinContainer extends React.Component {
     filter = (arr, render100) => {
         return arr.slice(render100, render100 + 100)
     }
-    
+
 
     render() {
         // console.log(this.state.coins.slice(0, 10).map(a => a['1d'].price_change_pct))
