@@ -2,6 +2,7 @@ import React from 'react';
 import CoinContainer from "./Components/CoinContainer"
 import { Route, Switch} from 'react-router-dom'
 import Navbar from './Components/NavBar';
+import UserNavbar from './Components/UserNavBar';
 import SignUp from './Components/SignUp';
 import LogIn from './Components/LogIn';
 import './App.css';
@@ -21,10 +22,15 @@ setUser = (user) => {
 }
 
   render(){
+    let navbar = <Navbar currentUser={this.state}/>
+
+    if (this.state.currentUser) {
+      navbar = <UserNavbar currentUser={this.state}/>
+    }
     console.log(this.state)
     return (
       <div >
-      <Navbar currentUser={this.state}/>
+      {navbar}
        <Switch>
         <Route exact path="/"component={CoinContainer}/>
         <Route exact path="/coins" component={CoinContainer}/>
