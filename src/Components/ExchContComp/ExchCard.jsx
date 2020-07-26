@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CoinCard extends React.Component {
+class ExchCard extends React.Component {
 
     renderPrice = () => {
         if (this.props.sort === "price") {
@@ -47,4 +47,4 @@ class CoinCard extends React.Component {
     }
 }
 
-export default CoinCard;
+export default ExchCard;

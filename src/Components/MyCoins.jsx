@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar'
-import CoinCard from './CoinCard';
+import CoinCard from './CoinContComp/CoinCard';
 
 class MyCoins extends React.Component {
 

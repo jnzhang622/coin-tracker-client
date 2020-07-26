@@ -1,5 +1,5 @@
 import React from 'react';
-import SearchBar from './SearchBar'
+import SearchBar from '../SearchBar'
 import CoinCard from './CoinCard';
 
 class CoinContainer extends React.Component {
@@ -18,12 +18,10 @@ class CoinContainer extends React.Component {
     handleChange = (e) => {
         if (e.target.name === "sort") {
             this.setState({ sort: e.target.value })
-            // console.log(e.target.value)
         }
         if (e.target.name === "filter") {
             this.setState({ filter: e.target.value })
             this.setState({ render100: 0 })
-            // console.log(e.target)
         }
     }
 
@@ -42,7 +40,6 @@ class CoinContainer extends React.Component {
                 coin.name.toLowerCase().includes(this.state.filter.toLowerCase())
             )
         })
-        // return arrayToReturn
         return this.sortControl(arrayToReturn)
     }
 
@@ -56,23 +53,18 @@ class CoinContainer extends React.Component {
         }
         else if (this.state.sort === "price_change_pct") {
             let filteredCoins = currentCoins.filter(coin => coin['1d'] )
-            // console.log(currentCoins.slice(0, 10).map(a => parseFloat(a['1d'].price_change_pct)))
-            //currentCoins = currentCoins.map(a => {
-                //if (!a['1d'].price_change_pct) {a['1d'].price_change_pct = "0.0"}
-            // })
             currentCoins = filteredCoins.sort((a, b) =>
              parseFloat(a['1d'].price_change_pct) > parseFloat(b['1d'].price_change_pct) ? -1 : 1)
         }
         return currentCoins
     }
 
-    filter = (arr, render100) => {
+    render100 = (arr, render100) => {
         return arr.slice(render100, render100 + 100)
     }
 
 
     render() {
-        // console.log(this.state.coins.slice(0, 10).map(a => a['1d'].price_change_pct))
         return (
             <div>
                 <SearchBar
@@ -83,7 +75,7 @@ class CoinContainer extends React.Component {
                 <button onClick={this.nextCoin}>Next 100</button>
                 <div className="cards">
                     {
-                        this.filter(this.returnsArray(), this.state.render100).map(coin => {
+                        this.render100(this.returnsArray(), this.state.render100).map(coin => {
                             return <CoinCard key={coin.id} coin={coin} sort={this.state.sort}/> })
                     }
                 </div>

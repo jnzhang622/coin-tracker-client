@@ -1,5 +1,6 @@
 import React from 'react';
-import CoinContainer from "./Components/CoinContainer"
+import CoinContainer from "./Components/CoinContComp/CoinContainer"
+import ExchContainer from "./Components/ExchContComp/ExchContainer"
 import MyCoins from "./Components/MyCoins"
 import { Route, Switch} from 'react-router-dom'
 import Navbar from './Components/NavBar';
@@ -37,7 +38,7 @@ setUser = (user) => {
         <Route exact path="/"component={CoinContainer}/>
         <Route exact path="/coins" component={CoinContainer}/>
         <Route exact path="/my_coins" render={(routerProps)=> <MyCoins {...this.state} {...routerProps}/>}/>
-        <Route exact path="/exchanges" component={CoinContainer}/>
+          <Route exact path="/exchanges" component={ExchContainer}/>
         <Route exact path="/signup" render={(routerProps)=> <SignUp setUser={this.setUser} {...routerProps}/>}/>
         <Route exact path="/login" render={(routerProps)=> <LogIn setUser={this.setUser} {...routerProps}/>}/>
         <Route exact path="/logout" render={(routerProps)=> <LogOut setUser={this.setUser} {...routerProps}/>}/>
