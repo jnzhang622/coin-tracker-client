@@ -13,7 +13,6 @@ class CoinCard extends React.Component {
             return (<div className="card__info">Change%: {this.props.coin['1d'].price_change_pct}%</div>)}}
 
     render() {
-        // console.log(this.props.coin['1d'].price_change_pct)
         let { name, price, logo_url, rank} = this.props.coin
         return (
             <li className="cards_item">

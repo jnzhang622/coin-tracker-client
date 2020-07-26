@@ -1,11 +1,9 @@
 import React from 'react';
-import SearchBar from '../SearchBar'
 import ExchCard from './ExchCard';
 
 class ExchContainer extends React.Component {
     state = {
         exch: [],
-        render100: 0,
         filter: "",
         sort: "None"
     }
@@ -18,8 +16,13 @@ class ExchContainer extends React.Component {
 
 
     render() {
+        console.log(this.state.exch)
         return (
-            <div>
+            <div className="cards">
+                {
+                    this.state.exch.map(exchange => {
+                    return <ExchCard key={exchange.id} exchange={exchange}/>})
+                }
             </div>
         )}
 }
