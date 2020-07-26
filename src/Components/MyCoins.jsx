@@ -9,8 +9,16 @@ class MyCoins extends React.Component {
     if (this.props.currentUser) {
     return(
       <>
-       <h1>Coins</h1>
-      </>
+       <h1>Welcome {this.props.currentUser[0].user_name}</h1>
+       <h1>Coins:</h1>
+       <div className="cards">
+       //we have to find get coins by symbol and then map
+           {
+               this.props.currentUser[1].map(coin => {
+                   return <CoinCard key={coin.id} coin={coin}/> })
+           }
+       </div>
+       </>
     )
   } else {
     return(
