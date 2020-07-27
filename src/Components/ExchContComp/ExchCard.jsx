@@ -24,10 +24,11 @@ class ExchCard extends React.Component {
         return (
             <li className="exchCards_item">
                 <div className="exchCard">
-
-                    <img src={image} alt={name}
-                        className="exchCard__image"
-                        />
+                    <div>
+                        <img src={image} alt={name} className="exchCard__image"/>
+                        <button className="card_button">Add to Watch</button>
+                    </div>
+                        
 
                     <div className="card__content">
                         <div className="card__title">{name}</div>
@@ -40,7 +41,6 @@ class ExchCard extends React.Component {
                         <a className="card__info">Trust Score Rank:{trust_score_rank}</a>
                         <a className="card__info">TradeVolume24hBTC: {parseFloat(trade_volume_24h_btc).toFixed(5)}</a>
                         <a className="card__info">TradeVolume24hBTC_Normalized: {parseFloat(trade_volume_24h_btc_normalized).toFixed(5)}</a>
-                        <button>Add to Watch</button>
                     </div>
                 </div>
             </li>

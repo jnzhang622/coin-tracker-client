@@ -156,11 +156,16 @@ img {
 }
 
 .card_button {
-  width: 70px;
+  background-color: #febf63;
+  color: white;
+  margin: 8px 0;
+  border: solid;
+  cursor: pointer;
+  width: 50%;
+  opacity: 0.9;
+  width: 100px;
+  font-size: 1rem;
 }
-/* .edit {
-  width: 80px;
-} */
 
 .card_button_container{
   justify-content: center;
@@ -226,7 +231,7 @@ input[type=text], input[type=password], input[type=username]{
  box-sizing: border-box;
 }
 
-button {
+.render100_button {
   background-color: #febf63;
   color: white;
   padding: 14px 75px;

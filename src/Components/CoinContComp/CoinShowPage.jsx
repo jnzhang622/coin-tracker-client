@@ -3,7 +3,7 @@ import React from 'react';
 class CoinShowPage extends React.Component {
     render() {
         return (
-            <div></div>
+            <div>Working on it</div>
             )
         }
     }
