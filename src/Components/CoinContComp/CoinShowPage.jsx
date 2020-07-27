@@ -26,16 +26,27 @@ class CoinShowPage extends React.Component {
             high, high_timestamp }
              = this.props.coin[0]
 
-        let { volume, price_change, price_change_pct, volume_change, 
-            volume_change_pct, market_cap_change, market_cap_change_pct}
-            = this.props.coin[0][`${this.state.priceRenderChanges}`]
+        let volume = "", price_change = "", price_change_pct = "", volume_change = "", 
+        volume_change_pct = "", market_cap_change= "", market_cap_change_pct = ""
         
+        if (this.props.coin[0]['1d']) {
+            volume = this.props.coin[0][`${this.state.priceRenderChanges}`].volume
+            price_change = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change
+            price_change_pct = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change_pct
+            volume_change = this.props.coin[0][`${this.state.priceRenderChanges}`].volume_change
+            volume_change_pct = this.props.coin[0][`${this.state.priceRenderChanges}`].volume_change_pct
+            market_cap_change = this.props.coin[0][`${this.state.priceRenderChanges}`].market_cap_change
+            market_cap_change_pct = this.props.coin[0][`${this.state.priceRenderChanges}`].market_cap_change_pct
+        }
+
         return (
             <div>
                 {
                     <div >
-                        <h1 className="showPage__title">{name}</h1>
-                        <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+                        <div>
+                            <h1 className="showPage__title">{name}</h1>
+                            <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+                        </div>
                         <div className="exchCards">
                             <div>
                                 <img src={logo_url} alt={name}
@@ -62,6 +73,7 @@ class CoinShowPage extends React.Component {
                                 </div>
                             </div>
 
+                            {this.props.coin[0][`1d`] ?
                             <div>
                                 <select onChange={this.handleChange} name="timeChange">
                                     <option value="1d"> Daily Change</option>
@@ -78,10 +90,11 @@ class CoinShowPage extends React.Component {
                                     <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
                                     <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
                                     <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
-
                                 </div>
                             </div>
-                        </div>
+                            :
+                            null}
+                        </div>  
                         <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
                     </div>
                 }

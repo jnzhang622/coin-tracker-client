@@ -175,6 +175,7 @@ img {
 }
 
 .card_button {
+  justify-content: center;
   background-color: #febf63;
   color: white;
   border: solid;
