@@ -7,26 +7,31 @@ class MyCoins extends React.Component {
    my_coins: []
  }
 
- componentDidMount() { 
-   fetch("https://api.nomics.com/v1/currencies/ticker?key=demo-26240835858194712a4f8cc0dc635c7a&ids=BTC,ETH,XRP&interval=1d,30d&convert=EUR")
+ componentDidMount() {
+   if (this.props.currentUser) {
+       let symbols = this.props.currentUser[1].map(coin => coin.symbol)
+      console.log(symbols.join())
+   fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}&ids=${symbols.join()}&interval=1d,30d&convert=EUR`)
      .then(response => response.json())
      .then(data => {
-       console.log(data)
         this.setState({my_coins: data})
      })
+   }
  }
   render(){
-    console.log(this.state)
     if (this.props.currentUser) {
     return(
       <>
        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
        <h1>Coins:</h1>
        <div className="cards">
-       //we have to find get coins by symbol and then map
-           {
 
-           }
+           {
+             this.state.my_coins.map((coin, index) =>
+                <CoinCard
+                key={coin.id}
+                coin={coin}/>
+             )}
        </div>
        </>
     )
