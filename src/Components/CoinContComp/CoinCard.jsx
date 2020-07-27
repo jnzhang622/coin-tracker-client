@@ -13,7 +13,6 @@ class CoinCard extends React.Component {
             return (<div className="card__info">Change%: {this.props.coin['1d'].price_change_pct}%</div>)}}
 
     render() {
-        // console.log(this.props.coin['1d'].price_change_pct)
         let { name, price, logo_url, rank} = this.props.coin
         return (
             <li className="cards_item">
@@ -29,17 +28,7 @@ class CoinCard extends React.Component {
                         <div className="card__info">Rank:{rank}</div><br/>
                         {this.renderPrice()}
                         {this.renderPricePercentChange()}
-                        
-                        {/* <div className="card__info">{this.props.coin['1d'].price_change_pct}</div> */}
-                        {/* <label>Tags:</label>
-                        {tags.map(t => <a className="card__info" key={t.id}>  {(t.name)}</a>)}
-                        <select className="add-tag-dropdown"></select> */}
                     </div>
-
-                    {/* <div className="card_button_container">
-                        <button className="card_button" onClick={this.handleLike}>Likes: {likes}</button>
-                        <button className="card_button" onClick={this.handleDelete}>Delete</button>
-                    </div> */}
 
                 </div>
             </li>

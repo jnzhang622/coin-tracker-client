@@ -5,7 +5,9 @@ const NavBar = props => {
     return (
         <>
         <div className="logo">
-         <img src={logo} alt="Logo" />
+            <a href="http://localhost:3000/">
+                <img src={logo} alt="Logo" />
+            </a>
         </div>
         <div className="navbar">
             <Link className="Link"to="/coins">Coins</Link>
