@@ -3,36 +3,39 @@ import React from 'react';
 class CoinShowPage extends React.Component {
 
     state = {
-        priceRenderChanges: "Daily"
+        priceRenderChanges: "1d"
     }
 
     handleChange = (e) => {
-        if (e.target.value === "Daily") {
+        if (e.target.value === "1d") {
             this.setState({ priceRenderChanges: e.target.value })}
-        else if (e.target.value === "Weekly") {
+        else if (e.target.value === "7d") {
             this.setState({ priceRenderChanges: e.target.value })}
-        else if (e.target.value === "Monthly") {
+        else if (e.target.value === "30d") {
             this.setState({ priceRenderChanges: e.target.value })}
-        else if (e.target.value === "Yearly") {
+        else if (e.target.value === "365d") {
             this.setState({ priceRenderChanges: e.target.value })}
-        else if (e.target.value === "YearToDate") {
+        else if (e.target.value === "ytd") {
             this.setState({ priceRenderChanges: e.target.value })}
-            console.log(this.state.priceRenderChanges)
     }
 
     render() {
-        let { name, logo_url, rank, 
-            currency, symbol, price, 
-            price_date, price_timestamp, 
-            circulating_supply, max_supply, 
-            market_cap, high, high_timestamp 
-        } = this.props.coin[0]
+        let { name, logo_url, rank, currency, 
+            symbol, price, price_date, price_timestamp, 
+            circulating_supply, max_supply, market_cap, 
+            high, high_timestamp }
+             = this.props.coin[0]
+
+        let { volume, price_change, price_change_pct, volume_change, 
+            volume_change_pct, market_cap_change, market_cap_change_pct}
+            = this.props.coin[0][`${this.state.priceRenderChanges}`]
         
         return (
             <div>
                 {
                     <div >
                         <h1 className="showPage__title">{name}</h1>
+                        <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
                         <div className="exchCards">
                             <div>
                                 <img src={logo_url} alt={name}
@@ -53,22 +56,33 @@ class CoinShowPage extends React.Component {
                                 <a className="showPage__info">High Timestamp: {high_timestamp}</a>
                                 
                                 <div>
-                                    <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+                                    
                                     <button className="card_button">Post Comment</button>
                                     <button className="card_button">Add to Watch</button>
                                 </div>
                             </div>
+
                             <div>
                                 <select onChange={this.handleChange} name="timeChange">
-                                    <option value="Daily"> Daily Change</option>
-                                    <option value="Weekly">Weekly Change</option>
-                                    <option value="Monthly">Monthly Change</option>
-                                    <option value="Yearly">Yearly Change</option>
-                                    <option value="YearToDate">Year to Date</option>
+                                    <option value="1d"> Daily Change</option>
+                                    <option value="7d">Weekly Change</option>
+                                    <option value="30d">Monthly Change</option>
+                                    <option value="365d">Yearly Change</option>
+                                    <option value="ytd">Year to Date</option>
                                 </select>
-                                
+                                <div>
+                                    <a className="showPage__info">Volume: {volume}</a>
+                                    <a className="showPage__info">Price Change: {price_change}</a>
+                                    <a className="showPage__info">Price Change %: {price_change_pct}</a>
+                                    <a className="showPage__info">Volume Change: {volume_change}</a>
+                                    <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
+                                    <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
+                                    <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
+
+                                </div>
                             </div>
                         </div>
+                        <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
                     </div>
                 }
             </div>
