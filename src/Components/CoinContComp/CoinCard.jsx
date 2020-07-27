@@ -13,10 +13,10 @@ class CoinCard extends React.Component {
             return (<div className="card__info">Change%: {this.props.coin['1d'].price_change_pct}%</div>)}}
 
     render() {
-        let { name, price, logo_url, rank} = this.props.coin
+        let { name, logo_url, rank} = this.props.coin
         return (
             <li className="cards_item">
-                <div className="card">
+                <div className="card" >
 
                     <img src={logo_url} alt={name}
                         className="card__image"
@@ -28,6 +28,7 @@ class CoinCard extends React.Component {
                         <div className="card__info">Rank:{rank}</div><br/>
                         {this.renderPrice()}
                         {this.renderPricePercentChange()}
+                        <button name="cardDetails" value={name} onClick={this.props.handleChange}>Show Details</button>
                     </div>
 
                 </div>
