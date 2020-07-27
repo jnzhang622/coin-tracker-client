@@ -38,8 +38,8 @@ class ExchCard extends React.Component {
                         <a className="card__info">Has Trading Incentive: {has_trading_incentive ? "Yes" : "No"}</a>
                         <a className="card__info">Trust Score:{trust_score}</a>
                         <a className="card__info">Trust Score Rank:{trust_score_rank}</a>
-                        <a className="card__info">Trade Volume 24h BTC:{parseFloat(trade_volume_24h_btc).toFixed(5)}</a>
-                        <a className="card__info">Trade Volume 24h BTC Normalized:{parseFloat(trade_volume_24h_btc_normalized).toFixed(5)}</a>
+                        <a className="card__info">TradeVolume24hBTC: {parseFloat(trade_volume_24h_btc).toFixed(5)}</a>
+                        <a className="card__info">TradeVolume24hBTC_Normalized: {parseFloat(trade_volume_24h_btc_normalized).toFixed(5)}</a>
                         <button>Add to Watch</button>
                     </div>
                 </div>

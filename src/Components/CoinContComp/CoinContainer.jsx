@@ -18,6 +18,7 @@ class CoinContainer extends React.Component {
     handleChange = (e) => {
         if (e.target.name === "sort") {
             this.setState({ sort: e.target.value })
+            this.setState({ render100: 0 })
         }
         if (e.target.name === "filter") {
             this.setState({ filter: e.target.value })
@@ -63,11 +64,22 @@ class CoinContainer extends React.Component {
         return arr.slice(render100, render100 + 100)
     }
 
+    sortOptions = () => {
+        return (
+            <select onChange={this.handleChange} name="sort">
+                <option value=""> None</option>
+                <option value="price">Price</option>
+                <option value="price_change_pct">Price Change %</option>
+            </select>
+        )
+    }
+
 
     render() {
         return (
             <div>
                 <SearchBar
+                    sortOptions={this.sortOptions()}
                     filter={this.state.filter}
                     handleChange={this.handleChange}
                 />
