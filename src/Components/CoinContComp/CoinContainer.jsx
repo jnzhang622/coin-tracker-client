@@ -82,8 +82,8 @@ class CoinContainer extends React.Component {
     render() {
         return (
             <div>
-                {this.state.renderShowPage ? 
-                <CoinShowPage coin={this.state.coins.filter(coin => 
+                {this.state.renderShowPage ?
+                <CoinShowPage {...this.props} coin={this.state.coins.filter(coin => 
                     coin.name ===this.state.setShowPage)} handleChange={this.handleChange}/>
                 :
                     <div>
@@ -109,7 +109,7 @@ class CoinContainer extends React.Component {
                     </div>
                 }
             </div>
-            
+
         )}
 }
 
