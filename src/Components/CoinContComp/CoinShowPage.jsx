@@ -34,6 +34,7 @@ class CoinShowPage extends React.Component {
                                 <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
                                 <button name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+                                <button >Add to Watch</button>
                             </div>
                         </div>
                     </div>
