@@ -32,10 +32,10 @@ class ExchCard extends React.Component {
 
                     <div className="card__content">
                         <div className="card__title">{name}</div>
+                        <a className="card__info" href={url}>{url}</a>
                         <a className="card__info">Year Established: {year_established}</a>
                         <a className="card__info">Country: {country}</a>
                         <a className="card__info">Description: {description}</a>
-                        <a className="card__info" href={url}>{url}</a>
                         <a className="card__info">Has Trading Incentive: {has_trading_incentive ? "Yes" : "No"}</a>
                         <a className="card__info">Trust Score:{trust_score}</a>
                         <a className="card__info">Trust Score Rank:{trust_score_rank}</a>
