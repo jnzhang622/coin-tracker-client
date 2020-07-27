@@ -14,27 +14,33 @@ class ExchCard extends React.Component {
 
     render() {
         // console.log(this.props.coin['1d'].price_change_pct)
-        let {name, image} = this.props.exchange
+        let { 
+            name, image, year_established, 
+            country, description, url, 
+            has_trading_incentive, trust_score, 
+            trust_score_rank, trade_volume_24h_btc,
+            trade_volume_24h_btc_normalized
+        } = this.props.exchange
         return (
-            <li className="cards_item">
-                <div className="card">
+            <li className="exchCards_item">
+                <div className="exchCard">
 
                     <img src={image} alt={name}
-                        className="card__image"
-                        // onClick={this.handleClick} 
+                        className="exchCard__image"
                         />
 
                     <div className="card__content">
                         <div className="card__title">{name}</div>
-                        <div>{this.props.exchange.year_established}</div>
-                        <div>{this.props.exchange.country}</div>
-                        <div>{this.props.exchange.description}</div>
-                        <div>{this.props.exchange.url}</div>
-                        <div>{this.props.exchange.has_trading_incentive}</div>
-                        <div>{this.props.exchange.trust_score}</div>
-                        <div>{this.props.exchange.trust_score_rank}</div>
-                        <div>{this.props.exchange.trade_volume_24h_btc}</div>
-                        <div>{this.props.exchange.trade_volume_24h_btc_normalized}</div>
+                        <a className="card__info">Year Established: {year_established}</a>
+                        <a className="card__info">Country: {country}</a>
+                        <a className="card__info">Description: {description}</a>
+                        <a className="card__info" href={url}>{url}</a>
+                        <a className="card__info">Has Trading Incentive: {has_trading_incentive ? "Yes" : "No"}</a>
+                        <a className="card__info">Trust Score:{trust_score}</a>
+                        <a className="card__info">Trust Score Rank:{trust_score_rank}</a>
+                        <a className="card__info">Trade Volume 24h BTC:{parseFloat(trade_volume_24h_btc).toFixed(5)}</a>
+                        <a className="card__info">Trade Volume 24h BTC Normalized:{parseFloat(trade_volume_24h_btc_normalized).toFixed(5)}</a>
+                        <button>Add to Watch</button>
                     </div>
                 </div>
             </li>

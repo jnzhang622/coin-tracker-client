@@ -18,7 +18,7 @@ class ExchContainer extends React.Component {
     render() {
         console.log(this.state.exch)
         return (
-            <div className="cards">
+            <div className="exchCards">
                 {
                     this.state.exch.map(exchange => {
                     return <ExchCard key={exchange.id} exchange={exchange}/>})
