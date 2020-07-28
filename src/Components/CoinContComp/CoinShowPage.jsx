@@ -67,66 +67,68 @@ render() {
     }
 
     return (
-     <div>
-         {
-             <div >
-                 <div>
-                     <h1 className="showPage__title">{name}</h1>
-                     <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
-                 </div>
-                 <div className="exchCards">
-                     <div>
-                         <img src={logo_url} alt={name}
-                             className="card__image"/>
-                     </div>
+    <div>
+        <div>
+            <div>
+                <h1 className="showPage__title">{name}</h1><br/>
+                <a className="center">
+                    <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+                </a>
+            </div>
 
-                     <div className="card__content">
-                         <a className="showPage__info">Currency: {currency}</a>
-                         <a className="showPage__info">Symbol: {symbol}</a>
-                         <a className="showPage__info">Price: {price}</a>
-                         <a className="showPage__info">Price Date: {price_date}</a>
-                         <a className="showPage__info">Price Timestamp: {price_timestamp}</a>
-                         <a className="showPage__info">Circulating Supply: {circulating_supply}</a>
-                         <a className="showPage__info">Max Supply: {max_supply}</a>
-                         <a className="showPage__info">Market Cap: {market_cap}</a>
-                         <a className="showPage__info">Rank: {rank}</a>
-                         <a className="showPage__info">High: {high}</a>
-                         <a className="showPage__info">High Timestamp: {high_timestamp}</a>
+            <div className="side_by_side_Card">
+                <div className="card__image">
+                    <img src={logo_url} alt={name} />
+                </div>
 
-                         <div>
+                <div className="card__content">
+                    <a className="showPage__info">Rank: {rank}</a>
+                    <a className="showPage__info">Currency: {currency}</a>
+                    <a className="showPage__info">Symbol: {symbol}</a>
+                    <a className="showPage__info">Price: {price}</a>
+                    <a className="showPage__info">Price Date: {price_date}</a>
+                    <a className="showPage__info">Price Timestamp: {price_timestamp}</a>
+                    <a className="showPage__info">Circulating Supply: {circulating_supply}</a>
+                    <a className="showPage__info">Max Supply: {max_supply}</a>
+                    <a className="showPage__info">Market Cap: {market_cap}</a>
+                    <a className="showPage__info">High: {high}</a>
+                    <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
-                             <button className="card_button">Post Comment</button>
-                             <button className="card_button">Add to Watch</button>
-                         </div>
-                     </div>
+                    <div>
+                        <button className="card_button">Post Comment</button>
+                        <button className="card_button">Add to Watch</button>
+                    </div>
+                </div>
 
-                     {this.props.coin[0][`1d`] ?
-                     <div>
-                         <select onChange={this.handleChange} name="timeChange">
-                             <option value="1d"> Daily Change</option>
-                             <option value="7d">Weekly Change</option>
-                             <option value="30d">Monthly Change</option>
-                             <option value="365d">Yearly Change</option>
-                             <option value="ytd">Year to Date</option>
-                         </select>
-                         <div>
-                             <a className="showPage__info">Volume: {volume}</a>
-                             <a className="showPage__info">Price Change: {price_change}</a>
-                             <a className="showPage__info">Price Change %: {price_change_pct}</a>
-                             <a className="showPage__info">Volume Change: {volume_change}</a>
-                             <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
-                             <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
-                             <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
-                         </div>
-                     </div>
-                     :
-                     null}
-                 </div>
-                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
-             </div>
-         }
-     </div>
-     )
- }
+                {this.props.coin[0][`1d`] ?
+                    <div className="card__content">
+                    <select onChange={this.handleChange} name="timeChange">
+                        <option value="1d"> Daily Change</option>
+                        <option value="7d">Weekly Change</option>
+                        <option value="30d">Monthly Change</option>
+                        <option value="365d">Yearly Change</option>
+                        <option value="ytd">Year to Date</option>
+                    </select>
+                    <div>
+                        <a className="showPage__info">Volume: {volume}</a>
+                        <a className="showPage__info">Price Change: {price_change}</a>
+                        <a className="showPage__info">Price Change %: {price_change_pct}</a>
+                        <a className="showPage__info">Volume Change: {volume_change}</a>
+                        <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
+                        <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
+                        <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
+                    </div>
+                </div>
+                :
+                null}
+            </div>
+            <div className="center">
+                <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
+            </div>
+                    
+        </div>
+    </div>
+        )
+    }
 }
 export default CoinShowPage;

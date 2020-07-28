@@ -23,7 +23,7 @@ class ExchCard extends React.Component {
         } = this.props.exchange
         return (
             <li className="exchCards_item">
-                <div className="exchCard">
+                <div className="side_by_side_Card">
                     <div>
                         <img src={image} alt={name} className="exchCard__image"/>
                         <button className="card_button">Add to Watch</button>
