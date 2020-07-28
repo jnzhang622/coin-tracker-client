@@ -1,6 +1,8 @@
 import React from 'react';
 import SearchBar from './SearchBar'
 import CoinCard from './CoinContComp/CoinCard';
+import CoinContainer from "./CoinContComp/CoinContainer";
+
 
 class MyCoins extends React.Component {
  state = {
@@ -10,7 +12,6 @@ class MyCoins extends React.Component {
  componentDidMount() {
    if (this.props.currentUser) {
        let symbols = this.props.currentUser[1].map(coin => coin.symbol)
-      console.log(symbols.join())
    fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}&ids=${symbols.join()}&interval=1d,30d&convert=EUR`)
      .then(response => response.json())
      .then(data => {
@@ -19,19 +20,14 @@ class MyCoins extends React.Component {
    }
  }
   render(){
-    if (this.props.currentUser) {
+    if (this.props.currentUser && this.state.my_coins.length > 0) {
     return(
       <>
        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
        <h1>Coins:</h1>
        <div className="cards">
-
-           {
-             this.state.my_coins.map((coin, index) =>
-                <CoinCard
-                key={coin.id}
-                coin={coin}/>
-             )}
+                <CoinContainer
+                coins={this.state.my_coins}/>
        </div>
        </>
     )

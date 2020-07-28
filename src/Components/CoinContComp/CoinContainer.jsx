@@ -14,9 +14,14 @@ class CoinContainer extends React.Component {
     }
 
     componentDidMount() {
+      console.log(this.props)
+      if (this.props.coins) {
+         this.setState({ coins: this.props.coins })
+      } else {
         fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}`)
             .then(resp => resp.json())
             .then(arr => { this.setState({ coins: arr }) })
+      }
     }
     handleChange = (e) => {
         if (e.target.name === "sort") {
@@ -83,7 +88,7 @@ class CoinContainer extends React.Component {
         return (
             <div>
                 {this.state.renderShowPage ?
-                <CoinShowPage {...this.props} coin={this.state.coins.filter(coin => 
+                <CoinShowPage {...this.props} coin={this.state.coins.filter(coin =>
                     coin.name ===this.state.setShowPage)} handleChange={this.handleChange}/>
                 :
                     <div>
