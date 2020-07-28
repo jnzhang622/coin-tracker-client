@@ -1,4 +1,5 @@
 import React from 'react';
+import CoinComments from './CoinComments';
 
 class CoinShowPage extends React.Component {
     state = {
@@ -97,45 +98,40 @@ render() {
                     <a className="showPage__info">High: {high}</a>
                     <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
-<<<<<<< HEAD
-                             <button className="card_button">Post Comment</button>
-                             <button onClick={this.trackCoin}className="card_button">Add to Watch</button>
-                         </div>
-                     </div>
-=======
                     <div>
                         <button className="card_button">Post Comment</button>
-                        <button className="card_button">Add to Watch</button>
+                        <button onClick={this.trackCoin}className="card_button">Add to Watch</button>
                     </div>
                 </div>
->>>>>>> a22d03e902b3e98abe2d6f1514eb6ff2ad27056c
 
                 {this.props.coin[0][`1d`] ?
-                    <div className="card__content">
-                    <select onChange={this.handleChange} name="timeChange">
-                        <option value="1d"> Daily Change</option>
-                        <option value="7d">Weekly Change</option>
-                        <option value="30d">Monthly Change</option>
-                        <option value="365d">Yearly Change</option>
-                        <option value="ytd">Year to Date</option>
-                    </select>
-                    <div>
-                        <a className="showPage__info">Volume: {volume}</a>
-                        <a className="showPage__info">Price Change: {price_change}</a>
-                        <a className="showPage__info">Price Change %: {price_change_pct}</a>
-                        <a className="showPage__info">Volume Change: {volume_change}</a>
-                        <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
-                        <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
-                        <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
+                        <div className="card__content">
+                        <select onChange={this.handleChange} name="timeChange">
+                            <option value="1d"> Daily Change</option>
+                            <option value="7d">Weekly Change</option>
+                            <option value="30d">Monthly Change</option>
+                            <option value="365d">Yearly Change</option>
+                            <option value="ytd">Year to Date</option>
+                        </select>
+                        <div>
+                            <a className="showPage__info">Volume: {volume}</a>
+                            <a className="showPage__info">Price Change: {price_change}</a>
+                            <a className="showPage__info">Price Change %: {price_change_pct}%</a>
+                            <a className="showPage__info">Volume Change: {volume_change}</a>
+                            <a className="showPage__info">Volume Change %: {volume_change_pct}%</a>
+                            <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
+                            <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}%</a>
+                        </div>
                     </div>
-                </div>
-                :
+                    :
                 null}
+                </div>
+            <div>
+                <CoinComments />
             </div>
             <div className="center">
                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
             </div>
-                    
         </div>
     </div>
         )

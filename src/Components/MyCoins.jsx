@@ -44,5 +44,4 @@ class MyCoins extends React.Component {
   }
  }
 }
-
 export default MyCoins;
