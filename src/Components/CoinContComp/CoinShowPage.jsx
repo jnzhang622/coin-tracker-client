@@ -60,7 +60,8 @@ render() {
     let volume = "", price_change = "", price_change_pct = "", volume_change = "",
     volume_change_pct = "", market_cap_change= "", market_cap_change_pct = ""
 
-    if (this.props.coin[0]['1d']) {
+    if (this.props.coin[0][this.state.priceRenderChanges]) {
+      console.log(this.props.coin)
         volume = this.props.coin[0][`${this.state.priceRenderChanges}`].volume
         price_change = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change
         price_change_pct = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change_pct
