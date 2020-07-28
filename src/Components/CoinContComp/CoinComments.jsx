@@ -27,7 +27,8 @@ class CoinComments extends React.Component {
                         return <div></div>
                     })
                 }
-                <input type="textarea" name="commentsTextInput" onChange={this.handleChange}/>
+                <input type="textarea" name="commentsTextInput" onChange={this.handleChange} />
+                <button className="ui button" type="submit" >Post</button>
             </div>
             )
         }
