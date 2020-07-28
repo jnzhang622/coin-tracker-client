@@ -24,7 +24,11 @@ class CoinComments extends React.Component {
                 <h2>Comments</h2>
                 {
                     this.state.comments.map(comment => {
-                        return <div></div>
+                        return <div>
+                            {/* username */}
+                            {/* time */}
+                            {/* text */}
+                        </div>
                     })
                 }
                 <input type="textarea" name="commentsTextInput" onChange={this.handleChange} />
