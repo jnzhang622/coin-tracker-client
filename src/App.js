@@ -1,6 +1,5 @@
 import React from 'react';
 import CoinContainer from "./Components/CoinContComp/CoinContainer"
-import CoinShowPage from "./Components/CoinContComp/CoinShowPage"
 import ExchContainer from "./Components/ExchContComp/ExchContainer"
 import MyCoins from "./Components/MyCoins"
 import {Route, Switch} from 'react-router-dom'
@@ -13,9 +12,10 @@ import './App.css';
 
 
 class App extends React.Component {
- state = {
-   currentUser: null,
-   coinShowPage: ""
+  state = {
+    // currentUser: "James",
+    currentUser: null,
+    coinShowPage: ""
  }
 
 setUser = (user) => {
@@ -27,7 +27,7 @@ setUser = (user) => {
 }
 
   render(){
-    let navbar = <Navbar />
+    let navbar = <Navbar currentUser={this.state.currentUser} />
 
     if (this.state.currentUser) {
       navbar = <UserNavbar currentUser={this.state} setUser={this.setUser}/>
@@ -37,9 +37,8 @@ setUser = (user) => {
       <div >
       {navbar}
        <Switch>
-        <Route exact path="/" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/>/>
-        <Route exact path="/coins" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/> />
-        {/* <Route exact path=`/coins/${this.state.coinShowPage}' component={CoinShowPage} /> */}
+        <Route exact path="/" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/>
+        <Route exact path="/coins" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps} currentUser={this.state.currentUser}/>}/>
         <Route exact path="/exchanges" component={ExchContainer} />
         <Route exact path="/my_coins" render={(routerProps)=> <MyCoins {...this.state} {...routerProps}/>}/>
         <Route exact path="/signup" render={(routerProps)=> <SignUp setUser={this.setUser} {...routerProps}/>}/>

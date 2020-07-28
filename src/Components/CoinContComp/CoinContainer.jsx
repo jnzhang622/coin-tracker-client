@@ -88,7 +88,7 @@ class CoinContainer extends React.Component {
         return (
             <div>
                 {this.state.renderShowPage ?
-                <CoinShowPage {...this.props} coin={this.state.coins.filter(coin =>
+                <CoinShowPage {...this.props} currentUser={this.props.currentUser} coin={this.state.coins.filter(coin =>
                     coin.name ===this.state.setShowPage)} handleChange={this.handleChange}/>
                 :
                     <div>

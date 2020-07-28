@@ -19,20 +19,29 @@ class CoinComments extends React.Component {
     // }
 
     render() {
+        console.log(this.props.currentUser)
         return (
             <div name="CommentsSection">
                 <h2>Comments</h2>
                 {
-                    this.state.comments.map(comment => {
-                        return <div>
-                            {/* username */}
-                            {/* time */}
-                            {/* text */}
-                        </div>
-                    })
+                    // this.state.comments.map(comment => {
+                    //     return 
+                    //     <div>
+                    //         {comment.user}
+                    //         {comment.timestamp}
+                    //         {comment.comment}
+                    //     </div>
+                    // })
+                    
                 }
-                <input type="textarea" name="commentsTextInput" onChange={this.handleChange} />
-                <button className="ui button" type="submit" >Post</button>
+                {this.props.currentUser != null ? 
+                <div>
+                    <input type="textarea" name="commentsTextInput" onChange={this.handleChange} />
+                    <button className="ui button" type="submit" >Post</button>
+                </div>
+                :
+                null
+                }
             </div>
             )
         }
