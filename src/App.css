@@ -67,7 +67,6 @@
   max-width: 150px;
   min-height: 150px;
   max-height: 150px;
-  /* height: 500px; */
 }
 
 .exchCard__image:hover{
@@ -80,15 +79,25 @@
   background-size: cover;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
-  /* filter: contrast(70%); */
+  filter: contrast(70%);
   overflow: hidden;
   position: relative;
-  /* transition: filter 0.5s cubic-bezier(.43,.41,.22,.91); */
+  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
   width: 500px;
 }
-/* .card__image:hover{
+.card__image:hover{
   filter: contrast(100%);
-} */
+}
+.show_page_card__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  width: 500px;
+}
 
 .card__title {
   color: #696969;

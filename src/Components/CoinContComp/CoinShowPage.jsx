@@ -77,9 +77,9 @@ render() {
             </div>
 
             <div className="side_by_side_Card">
-                <div className="card__image">
-                    <img src={logo_url} alt={name} />
-                </div>
+                <div className="show_page_card__image">
+                <img src={logo_url} alt={name} />
+            </div>
 
                 <div className="card__content">
                     <a className="showPage__info">Rank: {rank}</a>
