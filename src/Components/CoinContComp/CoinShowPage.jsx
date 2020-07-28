@@ -1,4 +1,5 @@
 import React from 'react';
+import CoinComments from './CoinComments';
 
 class CoinShowPage extends React.Component {
     state = {
@@ -112,15 +113,18 @@ render() {
                     <div>
                         <a className="showPage__info">Volume: {volume}</a>
                         <a className="showPage__info">Price Change: {price_change}</a>
-                        <a className="showPage__info">Price Change %: {price_change_pct}</a>
+                        <a className="showPage__info">Price Change %: {price_change_pct}%</a>
                         <a className="showPage__info">Volume Change: {volume_change}</a>
-                        <a className="showPage__info">Volume Change %: {volume_change_pct}</a>
+                        <a className="showPage__info">Volume Change %: {volume_change_pct}%</a>
                         <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
-                        <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}</a>
+                        <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}%</a>
                     </div>
                 </div>
                 :
                 null}
+                </div>
+            <div>
+                <CoinComments />
             </div>
             <div className="center">
                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
