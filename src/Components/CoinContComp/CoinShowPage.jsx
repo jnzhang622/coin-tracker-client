@@ -17,7 +17,7 @@ componentDidMount(){
   }
 }
 
-trackCoin = (state) => {
+trackCoin = () => {
   fetch("http://localhost:3000/api/v1/user_coins", {
     method: "POST",
     headers: {
@@ -25,13 +25,16 @@ trackCoin = (state) => {
       "Accept": "application/json"
     },
     body: JSON.stringify({
-      username: this.state.user_name,
+      user_name: this.state.user_name,
       symbol: this.state.symbol
     })
   })
   .then(res => res.json())
   .then(data => {
     console.log(data)
+    Array.isArray(data) ?
+    this.props.setUser(data) :
+    alert(data.message)
    })
 }
 
@@ -95,11 +98,18 @@ render() {
                     <a className="showPage__info">High: {high}</a>
                     <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
+<<<<<<< HEAD
+                             <button className="card_button">Post Comment</button>
+                             <button onClick={this.trackCoin}className="card_button">Add to Watch</button>
+                         </div>
+                     </div>
+=======
                     <div>
                         <button className="card_button">Post Comment</button>
                         <button className="card_button">Add to Watch</button>
                     </div>
                 </div>
+>>>>>>> a22d03e902b3e98abe2d6f1514eb6ff2ad27056c
 
                 {this.props.coin[0][`1d`] ?
                     <div className="card__content">
