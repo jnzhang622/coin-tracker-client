@@ -16,7 +16,7 @@ componentDidMount(){
   }
 }
 
-trackCoin = (state) => {
+trackCoin = () => {
   fetch("http://localhost:3000/api/v1/user_coins", {
     method: "POST",
     headers: {
@@ -24,13 +24,16 @@ trackCoin = (state) => {
       "Accept": "application/json"
     },
     body: JSON.stringify({
-      username: this.state.user_name,
+      user_name: this.state.user_name,
       symbol: this.state.symbol
     })
   })
   .then(res => res.json())
   .then(data => {
     console.log(data)
+    Array.isArray(data) ?
+    this.props.setUser(data) :
+    alert(data.message)
    })
 }
 
@@ -96,7 +99,7 @@ render() {
                          <div>
 
                              <button className="card_button">Post Comment</button>
-                             <button className="card_button">Add to Watch</button>
+                             <button onClick={this.trackCoin}className="card_button">Add to Watch</button>
                          </div>
                      </div>
 

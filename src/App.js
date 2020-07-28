@@ -37,8 +37,8 @@ setUser = (user) => {
       <div >
       {navbar}
        <Switch>
-        <Route exact path="/" render={(routerProps)=> <CoinContainer {...this.state} {...routerProps}/>}/>/>
-        <Route exact path="/coins" render={(routerProps)=> <CoinContainer {...this.state} {...routerProps}/>}/> />
+        <Route exact path="/" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/>/>
+        <Route exact path="/coins" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/> />
         {/* <Route exact path=`/coins/${this.state.coinShowPage}' component={CoinShowPage} /> */}
         <Route exact path="/exchanges" component={ExchContainer} />
         <Route exact path="/my_coins" render={(routerProps)=> <MyCoins {...this.state} {...routerProps}/>}/>
