@@ -1,41 +1,71 @@
-import React from 'react';
+import React from "react";
 
 class CoinComments extends React.Component {
+  state = {
+    comments: [],
+    textAreaInput: "",
+  };
 
-    state= {
-        comments: [],
-        textAreaInput: ""
-    }
+  handleChange = (e) => {
+    this.setState({ textAreaInput: e.target.value });
+    console.log(this.state.textAreaInput);
+  };
 
-    handleChange = (e) => {
-        this.setState({textAreaInput: e.target.value})
-        console.log(this.state.textAreaInput)
-    }
+  componentDidMount() {
+    fetch(`http://localhost:3000/api/v1/coin_user_comments`)
+      .then((resp) => resp.json())
+      .then((arr) => {
+        this.setState({ comments: arr });
+      });
+  }
 
-    // componentDidMount(){
-    //     fetch(``)
-    //         .then(resp => resp.json())
-    //         .then(arr => { this.setState({ comments: arr }) })
-    // }
+  // handleSubmit = (e) => {
+  //     e.preventDefault()
+  //         fetch(`http://localhost:3000/api/v1/coin_user_comments`, {
+  //             method: "POST",
+  //             headers: {
+  //                 "Content-Type": "application/json",
+  //                 "Accept": "application/json"
+  //             },
+  //             body: JSON.stringify({
+  //                 username: this.props.currentUser,
+  //                 comment: this.state.textAreaInput
+  //             })
+  //         })
+  //             .then(res => res.json())
+  //             .then(data => {})
+  //         }
 
-    render() {
-        return (
-            <div name="CommentsSection">
-                <h2>Comments</h2>
-                {
-                    this.state.comments.map(comment => {
-                        return <div>
-                            {/* username */}
-                            {/* time */}
-                            {/* text */}
-                        </div>
-                    })
-                }
-                <input type="textarea" name="commentsTextInput" onChange={this.handleChange} />
-                <button className="ui button" type="submit" >Post</button>
-            </div>
-            )
+  render() {
+    console.log(this.state.comments);
+    return (
+      <div name="CommentsSection">
+        <h2>Comments</h2>
+        {
+          // this.state.comments.map(comment => {
+          //     return
+          //     <div>
+          //         {comment.user}
+          //         {comment.timestamp}
+          //         {comment.comment}
+          //     </div>
+          // })
         }
-    }
+        {this.props.currentUser != null ? (
+          <div>
+            <textarea
+              type="textarea"
+              name="commentsTextInput"
+              onChange={this.handleChange}
+            />
+            <button className="ui button" type="submit">
+              Post
+            </button>
+          </div>
+        ) : null}
+      </div>
+    );
+  }
+}
 
 export default CoinComments;

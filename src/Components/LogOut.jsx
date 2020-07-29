@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
-const LogOut = props => {
-  props.setUser(null)
+const LogOut = (props) => {
+  props.setUser(null);
 
- console.log(props)
+  console.log(props);
   return (
     <>
-    <h1>You have logged out!</h1>
+      <h1>You have logged out!</h1>
     </>
-  )
-}
+  );
+};
 
-export default LogOut
+export default LogOut;
