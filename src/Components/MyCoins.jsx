@@ -28,7 +28,7 @@ class MyCoins extends React.Component {
     return(
       <>
        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
-       <h1>Coins:</h1>
+       <h1>Your Coins:</h1>
        <div className="cards">
                 <CoinContainer
                 currentUser={this.props.currentUser}

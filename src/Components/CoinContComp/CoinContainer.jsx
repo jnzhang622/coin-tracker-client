@@ -86,7 +86,8 @@ class CoinContainer extends React.Component {
 
 
     render() {
-
+    if (this.props.my_coins){
+      console.log("ok")
         return (
             <div>
                 {this.state.renderShowPage ?
@@ -99,8 +100,6 @@ class CoinContainer extends React.Component {
                             filter={this.state.filter}
                             handleChange={this.handleChange}
                         />
-                        <button className="render100_button" onClick={this.lastCoin}>Previous 100</button>
-                        <button className="render100_button" render100_button onClick={this.nextCoin}>Next 100</button>
                         <div className="cards">
                             {
                                 this.render100(this.returnsArray(), this.state.render100).map(coin => {
@@ -117,7 +116,41 @@ class CoinContainer extends React.Component {
                 }
             </div>
 
-        )}
+        )
+      } else {
+          return (
+              <div>
+                  {this.state.renderShowPage ?
+                  <CoinShowPage currentUser={this.props.currentUser} setUser={this.props.setUser} coin={this.state.coins.filter(coin =>
+                      coin.name ===this.state.setShowPage)} handleChange={this.handleChange}/>
+                  :
+                      <div>
+                          <SearchBar
+                              sortOptions={this.sortOptions()}
+                              filter={this.state.filter}
+                              handleChange={this.handleChange}
+                          />
+                          <button className="render100_button" onClick={this.lastCoin}>Previous 100</button>
+                          <button className="render100_button" render100_button onClick={this.nextCoin}>Next 100</button>
+                          <div className="cards">
+                              {
+                                  this.render100(this.returnsArray(), this.state.render100).map(coin => {
+                                      return <CoinCard
+                                          key={coin.id}
+                                          coin={coin}
+                                          sort={this.state.sort}
+                                          handleChange={this.handleChange}
+                                      />
+                                  })
+                              }
+                          </div>
+                      </div>
+                  }
+              </div>
+
+          )
+        }
+      }
 }
 
 export default CoinContainer;
