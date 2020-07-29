@@ -37,7 +37,7 @@ class MyCoins extends React.Component {
        </div>
        </>
     )
-  } else if (this.props.currentUser){
+  } else if (this.props.currentUser && this.props.currentUser[1]){
     return(
       <>
       <h1>Welcome {this.props.currentUser[0].user_name}</h1>

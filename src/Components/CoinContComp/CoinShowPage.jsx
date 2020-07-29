@@ -19,7 +19,7 @@ componentDidMount(){
 
 trackCoin = (event) => {
   event.persist()
-  this.props.handleChange(event) 
+  this.props.handleChange(event)
 
   fetch("http://localhost:3000/api/v1/user_coins", {
     method: "POST",
@@ -55,6 +55,21 @@ handleChange = (e) => {
         this.setState({ priceRenderChanges: e.target.value })}
 }
 render() {
+
+  let my_coins = []
+  let trackOrUntrack = "start tracking!"
+   let trackButton = ""
+   let commentButton = ""
+
+   if (this.props.currentUser && this.props.currentUser[1].length > 0){
+     my_coins = this.props.currentUser[1].map(coin => coin.symbol)
+      my_coins.includes(this.state.symbol) ? trackOrUntrack = "stop tracking!" :  trackOrUntrack = "start tracking!"
+   }
+
+   if(this.props.currentUser) {
+     trackButton = <button onClick={this.trackCoin} className="card_button" name="cardDetails">{trackOrUntrack}</button>
+     commentButton = <button className="card_button">Post Comment</button>
+   }
 
     let { name, logo_url, rank, currency,
         symbol, price, price_date, price_timestamp,
@@ -105,8 +120,8 @@ render() {
                     <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
                     <div>
-                        <button className="card_button">Post Comment</button>
-                        <button onClick={this.trackCoin} className="card_button" name="cardDetails">Add to Watch</button>
+                        {commentButton}
+                        {trackButton}
                     </div>
                 </div>
 
