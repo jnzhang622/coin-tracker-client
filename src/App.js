@@ -19,11 +19,19 @@ class App extends React.Component {
  }
 
 setUser = (user) => {
+  console.log(this.props)
   console.log(user)
-  this.setState({
+  if (user && user.message) {
+   alert(user.message)
+ } else if (user) {
+   this.setState({
      currentUser: user
   },()=> this.props.history.push('/my_coins'))
-
+} else {
+  this.setState({
+    currentUser: user
+ },()=> this.props.history.push('/coins'))
+ }
 }
 
   render(){
@@ -41,7 +49,7 @@ setUser = (user) => {
         <Route exact path="/coins" render={(routerProps)=> <CoinContainer setUser={this.setUser} {...this.state} {...routerProps}/>}/> />
         {/* <Route exact path=`/coins/${this.state.coinShowPage}' component={CoinShowPage} /> */}
         <Route exact path="/exchanges" component={ExchContainer} />
-        <Route exact path="/my_coins" render={(routerProps)=> <MyCoins {...this.state} {...routerProps}/>}/>
+        <Route exact path="/my_coins" render={(routerProps)=> <MyCoins setUser={this.setUser} {...this.state} {...routerProps}/>}/>
         <Route exact path="/signup" render={(routerProps)=> <SignUp setUser={this.setUser} {...routerProps}/>}/>
         <Route exact path="/login" render={(routerProps)=> <LogIn setUser={this.setUser} {...routerProps}/>}/>
         <Route exact path="/logout" render={(routerProps)=> <LogOut setUser={this.setUser} {...routerProps}/>}/>

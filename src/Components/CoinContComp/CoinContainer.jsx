@@ -15,8 +15,8 @@ class CoinContainer extends React.Component {
 
     componentDidMount() {
       console.log(this.props)
-      if (this.props.coins) {
-         this.setState({ coins: this.props.coins })
+      if (this.props.my_coins) {
+         this.setState({ coins: this.props.my_coins })
       } else {
         fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}`)
             .then(resp => resp.json())
@@ -85,10 +85,11 @@ class CoinContainer extends React.Component {
 
 
     render() {
+
         return (
             <div>
                 {this.state.renderShowPage ?
-                <CoinShowPage {...this.props} coin={this.state.coins.filter(coin =>
+                <CoinShowPage currentUser={this.props.currentUser} setUser={this.props.setUser} coin={this.state.coins.filter(coin =>
                     coin.name ===this.state.setShowPage)} handleChange={this.handleChange}/>
                 :
                     <div>

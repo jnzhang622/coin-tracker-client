@@ -10,6 +10,7 @@ class CoinShowPage extends React.Component {
 
 componentDidMount(){
   if(this.props.currentUser){
+      console.log(this.props.currentUser[0])
   this.setState({
     user_name: this.props.currentUser[0].user_name,
     symbol: this.props.coin[0].symbol,
@@ -32,9 +33,11 @@ trackCoin = () => {
   .then(res => res.json())
   .then(data => {
     console.log(data)
-    Array.isArray(data) ?
-    this.props.setUser(data) :
-    alert(data.message)
+     if (data.errors) {
+       alert(data.errors)
+    } else {
+      this.props.handleChange && this.props.setUser(data)
+    }
    })
 }
 
@@ -51,6 +54,7 @@ handleChange = (e) => {
         this.setState({ priceRenderChanges: e.target.value })}
 }
 render() {
+  console.log(this.props)
     let { name, logo_url, rank, currency,
         symbol, price, price_date, price_timestamp,
         circulating_supply, max_supply, market_cap,
@@ -61,7 +65,7 @@ render() {
     volume_change_pct = "", market_cap_change= "", market_cap_change_pct = ""
 
     if (this.props.coin[0][this.state.priceRenderChanges]) {
-      console.log(this.props.coin)
+
         volume = this.props.coin[0][`${this.state.priceRenderChanges}`].volume
         price_change = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change
         price_change_pct = this.props.coin[0][`${this.state.priceRenderChanges}`].price_change_pct

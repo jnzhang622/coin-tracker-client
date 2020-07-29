@@ -32,8 +32,8 @@ class SignUp extends React.Component {
     .then(res => res.json())
     .then(data => {
       console.log(data)
-       if(Array.isArray(data)){
-         alert(data)
+       if(data.errors){
+         alert(data.errors.full_messages)
        } else {
          this.props.setUser(data)
        }
