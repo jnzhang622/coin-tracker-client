@@ -131,7 +131,7 @@ class CoinContainer extends React.Component {
                               handleChange={this.handleChange}
                           />
                           <button className="render100_button" onClick={this.lastCoin}>Previous 100</button>
-                          <button className="render100_button" render100_button onClick={this.nextCoin}>Next 100</button>
+                          <button className="render100_button" onClick={this.nextCoin}>Next 100</button>
                           <div className="cards">
                               {
                                   this.render100(this.returnsArray(), this.state.render100).map(coin => {
