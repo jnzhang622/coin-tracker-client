@@ -2,13 +2,14 @@ import React from "react";
 import Comment from './Comment';
 class CoinComments extends React.Component {
   state = {
+    username: "",
     comments: [],
     textAreaInput: "",
   };
 
   handleChange = (e) => {
     this.setState({ textAreaInput: e.target.value });
-    console.log(this.state.textAreaInput);
+
   };
 
   componentDidMount() {
@@ -16,7 +17,7 @@ class CoinComments extends React.Component {
       .then((resp) => resp.json())
       .then((arr) => {
         console.log(arr)
-        this.setState({ comments: arr });
+        this.setState({ comments: arr[0] });
       });
   }
 
@@ -38,7 +39,8 @@ class CoinComments extends React.Component {
               .then(data => {
               console.log(data)
                 this.setState({
-                  comments: data,
+                  username: data[1],
+                  comments: data[0],
                   textAreaInput: ""
                  })
 
@@ -46,16 +48,14 @@ class CoinComments extends React.Component {
           }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.comments)
     return (
       <div name="CommentsSection">
         <h2>Comments</h2>
         {
           this.state.comments.length > 0 ?
-          this.state.comments.map((comments, index) =>
-            comments.map((comment, index) =>
-            <Comment key={comment.id} comment={comment}}/>
-          )
+          this.state.comments.map((comment, index) =>
+            <Comment key={comment.id} username={this.state.username} comment={comment}/>
         ) : null
         }
         {this.props.currentUser != null ? (
