@@ -1,7 +1,6 @@
 import React from 'react';
 
 class CoinCard extends React.Component {
-
     renderPrice = () => {
         if (this.props.sort === "price") {
             return (<div className="card__info">Price: ${parseFloat(this.props.coin.price).toFixed(2)}</div>)
@@ -18,9 +17,9 @@ class CoinCard extends React.Component {
             <li className="cards_item">
                 <div className="card" >
 
-                    <img src={logo_url} alt={name} 
+                    <img src={logo_url} alt={name}
                         className="card__image"
-                        // onClick={this.handleClick} 
+                        // onClick={this.handleClick}
                         />
 
                     <div className="card__content">
@@ -28,7 +27,7 @@ class CoinCard extends React.Component {
                         <div className="card__info">Rank:{rank}</div><br/>
                         {this.renderPrice()}
                         {this.renderPricePercentChange()}
-                        
+
                     </div>
                     <div className="card_detail_button">
                         <button name="cardDetails" value={name} onClick={this.props.handleChange}>Show Details</button>
