@@ -11,7 +11,6 @@ import LogOut from "./Components/LogOut";
 import "./App.css";
 
 class App extends React.Component {
-<<<<<<< HEAD
  state = {
    currentUser: null,
    coinShowPage: ""
@@ -32,23 +31,6 @@ setUser = (user) => {
  },()=> this.props.history.push('/coins'))
  }
 }
-=======
-  state = {
-    // currentUser: "James",
-    currentUser: null,
-    coinShowPage: "",
-  };
-
-  setUser = (user) => {
-    console.log(user);
-    this.setState(
-      {
-        currentUser: user,
-      },
-      () => this.props.history.push("/my_coins")
-    );
-  };
->>>>>>> 11d10ec6e7d00ace43c64f405587973631582bc6
 
   render() {
     let navbar = <Navbar currentUser={this.state.currentUser} />;
@@ -58,7 +40,6 @@ setUser = (user) => {
     }
 
     return (
-<<<<<<< HEAD
       <div >
       {navbar}
        <Switch>
@@ -71,63 +52,6 @@ setUser = (user) => {
         <Route exact path="/login" render={(routerProps)=> <LogIn setUser={this.setUser} {...routerProps}/>}/>
         <Route exact path="/logout" render={(routerProps)=> <LogOut setUser={this.setUser} {...routerProps}/>}/>
        </Switch>
-=======
-      <div>
-        {navbar}
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={(routerProps) => (
-              <CoinContainer
-                setUser={this.setUser}
-                {...this.state}
-                {...routerProps}
-              />
-            )}
-          />
-          <Route
-            exact
-            path="/coins"
-            render={(routerProps) => (
-              <CoinContainer
-                setUser={this.setUser}
-                {...this.state}
-                {...routerProps}
-              />
-            )}
-          />
-          <Route exact path="/exchanges" component={ExchContainer} />
-          <Route
-            exact
-            path="/my_coins"
-            render={(routerProps) => (
-              <MyCoins {...this.state} {...routerProps} />
-            )}
-          />
-          <Route
-            exact
-            path="/signup"
-            render={(routerProps) => (
-              <SignUp setUser={this.setUser} {...routerProps} />
-            )}
-          />
-          <Route
-            exact
-            path="/login"
-            render={(routerProps) => (
-              <LogIn setUser={this.setUser} {...routerProps} />
-            )}
-          />
-          <Route
-            exact
-            path="/logout"
-            render={(routerProps) => (
-              <LogOut setUser={this.setUser} {...routerProps} />
-            )}
-          />
-        </Switch>
->>>>>>> 11d10ec6e7d00ace43c64f405587973631582bc6
       </div>
     );
   }
