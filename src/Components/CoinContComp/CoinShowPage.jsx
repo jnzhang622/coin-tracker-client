@@ -59,7 +59,6 @@ render() {
   let my_coins = []
   let trackOrUntrack = "start tracking!"
    let trackButton = ""
-   let commentButton = ""
 
    if (this.props.currentUser && this.props.currentUser[1].length > 0){
      my_coins = this.props.currentUser[1].map(coin => coin.symbol)
@@ -68,7 +67,6 @@ render() {
 
    if(this.props.currentUser) {
      trackButton = <button onClick={this.trackCoin} className="card_button" name="cardDetails">{trackOrUntrack}</button>
-     commentButton = <button className="card_button">Post Comment</button>
    }
 
     let { name, logo_url, rank, currency,
@@ -120,8 +118,7 @@ render() {
                     <a className="showPage__info">High Timestamp: {high_timestamp}</a>
 
                     <div>
-                        {commentButton}
-                        {trackButton}
+                       {trackButton}
                     </div>
                 </div>
 
@@ -148,7 +145,7 @@ render() {
                 null}
                 </div>
             <div>
-                <CoinComments currentUser={this.props.currentUser} symbol={this.state.symbol}/>
+                <CoinComments currentUser={this.props.currentUser} symbol={this.props.coin[0].symbol}/>
             </div>
             <div className="center">
                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
