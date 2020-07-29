@@ -19,22 +19,23 @@ class CoinComments extends React.Component {
       });
   }
 
-  // handleSubmit = (e) => {
-  //     e.preventDefault()
-  //         fetch(`http://localhost:3000/api/v1/coin_user_comments`, {
-  //             method: "POST",
-  //             headers: {
-  //                 "Content-Type": "application/json",
-  //                 "Accept": "application/json"
-  //             },
-  //             body: JSON.stringify({
-  //                 username: this.props.currentUser,
-  //                 comment: this.state.textAreaInput
-  //             })
-  //         })
-  //             .then(res => res.json())
-  //             .then(data => {})
-  //         }
+  handleSubmit = (e) => {
+      e.preventDefault()
+          fetch(`http://localhost:3000/api/v1/coin_user_comments`, {
+              method: "POST",
+              headers: {
+                  "Content-Type": "application/json",
+                  "Accept": "application/json"
+              },
+              body: JSON.stringify({
+                  username: this.props.currentUser[0].user_name,
+                  symbol: this.props.symbol,
+                  comment: this.state.textAreaInput
+              })
+          })
+              .then(res => res.json())
+              .then(data => {})
+          }
 
   render() {
     console.log(this.state.comments);
@@ -58,7 +59,7 @@ class CoinComments extends React.Component {
               name="commentsTextInput"
               onChange={this.handleChange}
             />
-            <button className="ui button" type="submit">
+            <button onClick={(e)=> this.handleSubmit(e)}className="ui button" type="submit">
               Post
             </button>
           </div>

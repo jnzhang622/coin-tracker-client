@@ -148,7 +148,7 @@ render() {
                 null}
                 </div>
             <div>
-                <CoinComments />
+                <CoinComments currentUser={this.props.currentUser} symbol={this.state.symbol}/>
             </div>
             <div className="center">
                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
