@@ -3,7 +3,6 @@ import SearchBar from './SearchBar'
 import CoinCard from './CoinContComp/CoinCard';
 import CoinContainer from "./CoinContComp/CoinContainer";
 
-
 class MyCoins extends React.Component {
  state = {
    my_coins: []
