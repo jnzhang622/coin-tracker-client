@@ -87,7 +87,6 @@ class CoinContainer extends React.Component {
 
     render() {
     if (this.props.my_coins){
-      console.log("ok")
         return (
             <div>
                 {this.state.renderShowPage ?
@@ -130,6 +129,7 @@ class CoinContainer extends React.Component {
                               filter={this.state.filter}
                               handleChange={this.handleChange}
                           />
+                          <p>Total Coins: <b>{this.state.coins.length}</b></p> 
                           <button className="render100_button" onClick={this.lastCoin}>Previous 100</button>
                           <button className="render100_button" onClick={this.nextCoin}>Next 100</button>
                           <div className="cards">

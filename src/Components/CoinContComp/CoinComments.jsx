@@ -31,7 +31,8 @@ class CoinComments extends React.Component {
               method: "POST",
               headers: {
                   "Content-Type": "application/json",
-                  "Accept": "application/json"
+                  "Accept": "application/json",
+                  Authorization: `Bearer ${this.props.currentUser[2]}`
               },
               body: JSON.stringify({
                   username: this.props.currentUser[0].user_name,
@@ -52,7 +53,7 @@ class CoinComments extends React.Component {
           }
 
   render() {
-    console.log(this.state.comments)
+    console.log(this.props)
     return (
       <div name="CommentsSection">
         <h2>Comments</h2>
