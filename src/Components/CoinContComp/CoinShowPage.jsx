@@ -19,6 +19,8 @@ componentDidMount(){
 
 trackCoin = (event) => {
   event.persist()
+
+  if (event.target.value === "start tracking!") {
   this.props.handleChange(event)
 
   fetch("http://localhost:3000/api/v1/user_coins", {
@@ -40,6 +42,33 @@ trackCoin = (event) => {
       this.props.setUser(data)
     }
    })
+
+ } else {
+
+   this.props.handleChange(event)
+
+   fetch(`http://localhost:3000/api/v1/user_coins/${this.state.symbol}`, {
+     method: "DELETE",
+     headers: {
+       "Content-Type": "application/json",
+       "Accept": "application/json"
+     },
+     body: JSON.stringify({
+       user_name: this.state.user_name,
+       symbol: this.state.symbol
+     })
+   })
+   .then(res => res.json())
+   .then(data => {
+      if (data.errors) {
+        alert(data.errors)
+     } else {
+       console.log(data)
+       this.props.setUser(data)
+     }
+    })
+
+ }
 }
 
 handleChange = (e) => {
@@ -66,7 +95,7 @@ render() {
    }
 
    if(this.props.currentUser) {
-     trackButton = <button onClick={this.trackCoin} className="card_button" name="cardDetails">{trackOrUntrack}</button>
+     trackButton = <button onClick={this.trackCoin} className="card_button" name="cardDetails" value={trackOrUntrack}>{trackOrUntrack}</button>
    }
 
     let { name, logo_url, rank, currency,

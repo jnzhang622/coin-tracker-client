@@ -4,7 +4,6 @@ import CoinCard from './CoinCard';
 import CoinShowPage from './CoinShowPage';
 
 class CoinContainer extends React.Component {
-  
     state = {
         coins: [],
         render100: 0,
