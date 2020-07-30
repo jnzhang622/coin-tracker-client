@@ -53,7 +53,7 @@ class CoinComments extends React.Component {
     return (
       <div name="CommentsSection">
         <h2>Comments</h2>
-        <div className="">
+        <div className="comment_container">
         {
           this.state.comments.length > 0 ?
           this.state.comments.map((comment, index) =>
