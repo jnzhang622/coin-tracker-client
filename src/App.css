@@ -274,7 +274,8 @@ input[type=text], input[type=password], input[type=username]{
 }
 
 .comment_container{
-  justify-content: center;
+  margin-left: 10px;
+
 }
 
 .comment_box{
@@ -302,5 +303,5 @@ input[type=text], input[type=password], input[type=username]{
 }
 .comment_post_box{
   width: 500px;
-  height: 100px;
+  height: 50px;
 }
