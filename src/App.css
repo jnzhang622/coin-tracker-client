@@ -8,6 +8,9 @@
 }
 
 .card {
+  min-width: 70px;
+  min-height: 85px;
+  padding: 13px;
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
@@ -172,6 +175,15 @@
   }
 }
 
+h1 {
+   text-align: center;
+   font-family: Impact;
+   color: #696969;
+}
+
+strong {
+   font-family: Impact;
+}
 img {
   height: auto;
   max-width: 100%;
@@ -205,6 +217,8 @@ img {
 }
 
 a:link {
+  text-decoration: none;
+  font-family: Impact;
   color: #0e9aa7;
 }
 
@@ -223,6 +237,7 @@ a:visited {
 }
 
 .navbar {
+  min-height: 25px;
   background-color: aliceblue;
   display: flex;
   flex-direction: row;
@@ -232,6 +247,7 @@ a:visited {
 }
 
 .Link:hover {
+   text-align: center;
    background-color: #f3ecc2;
    transition-duration: 1s;
  }
@@ -240,6 +256,7 @@ a:visited {
   background: #f1f1f1;
   max-width: 360px;
   margin: 0 auto 25px;
+  margin-top: 2%;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

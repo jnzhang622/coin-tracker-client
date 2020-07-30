@@ -22,7 +22,7 @@ trackCoin = (event) => {
 
   if (event.target.value === "start tracking!") {
   this.props.handleChange(event)
-
+console.log(this.props)
   fetch("http://localhost:3000/api/v1/user_coins", {
     method: "POST",
     headers: {
@@ -40,6 +40,7 @@ trackCoin = (event) => {
      if (data.errors) {
        alert(data.errors)
     } else {
+      console.log(data)
       this.props.setUser(data)
     }
    })
