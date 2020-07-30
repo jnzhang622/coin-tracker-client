@@ -31,7 +31,7 @@ class ExchCard extends React.Component {
         <div className="side_by_side_Card">
           <div>
             <img src={image} alt={name} className="exchCard__image" />
-            <button className="card_button">Add to Watch</button>
+            {/* <button className="card_button">Add to Watch</button> */}
           </div>
 
           <div className="card__content">

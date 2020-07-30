@@ -128,9 +128,14 @@ class CoinContainer extends React.Component {
                               filter={this.state.filter}
                               handleChange={this.handleChange}
                           />
-                          <p>Total Coins: <b>{this.state.coins.length}</b></p>
-                          <button className="render100_button" onClick={this.lastCoin}>Previous 100</button>
-                          <button className="render100_button" onClick={this.nextCoin}>Next 100</button>
+                          <div>
+                              <strong>Sort:</strong>
+                              {this.sortOptions()}
+                          </div>
+                          <button className="render100_button" name="last100" onClick={this.handleChange}>Previous 100</button>
+                          <button className="render100_button" name="next100" onClick={this.handleChange}>Next 100</button>
+                          <p>Showing {this.state.render100 + 1} - {(this.state.render100 + 100 > this.returnsArray().length) ?
+                          (this.returnsArray().length) : (this.state.render100 + 100)} of {this.returnsArray().length} coins</p>
                           <div className="cards">
                               {
                                   this.render100(this.returnsArray(), this.state.render100).map(coin => {
