@@ -65,7 +65,9 @@ class CoinComments extends React.Component {
                 value={this.state.textAreaInput}
                 onChange={this.handleChange}
               />
-              <button className="comment_post_box" onClick={(e) => this.handleSubmit(e)} className="ui button" type="submit">
+              <button className="comment_post_box" 
+                onClick={(e) => this.handleSubmit(e)} 
+                type="submit">
                 Post
             </button>
             </div>
