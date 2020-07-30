@@ -24,7 +24,7 @@ class MyCoins extends React.Component {
 
  componentDidUpdate(prevProps){
    if (prevProps != this.props){
-    
+
      let newArr = this.props.currentUser[1]
      this.setState({my_coins: newArr})
    }
