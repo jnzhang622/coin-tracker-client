@@ -16,10 +16,19 @@ class MyCoins extends React.Component {
      .then(response => response.json())
      .then(data => {
         this.setState({my_coins: data})
+
      })
    }
+
  }
 
+ componentDidUpdate(prevProps){
+   if (prevProps != this.props){
+
+     let newArr = this.props.currentUser[1]
+     this.setState({my_coins: newArr})
+   }
+ }
 
   render(){
     if (this.props.currentUser && this.state.my_coins.length > 0) {
@@ -37,6 +46,7 @@ class MyCoins extends React.Component {
        </>
     )
   } else if (this.props.currentUser && this.props.currentUser[1]){
+
     return(
       <>
       <h1>Welcome {this.props.currentUser[0].user_name}</h1>

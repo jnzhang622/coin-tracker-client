@@ -15,11 +15,14 @@ class CoinComments extends React.Component {
 
   componentDidMount() {
     fetch(`http://localhost:3000/api/v1/coin_user_comments/${this.props.symbol}`)
-      .then(resp => resp.json())
-      .then(arr => {
-        console.log(arr)
-        this.setState({ comments: arr[0] });
-      });
+        .then(res => res.json())
+        .then(data => {
+           if (data[0] === "coin not found") {
+             alert(data)
+          } else {
+          this.setState({ comments: data[0] })
+          }
+         })
   }
 
   handleSubmit = (e) => {
@@ -63,7 +66,7 @@ class CoinComments extends React.Component {
         </div>
         {this.props.currentUser != null ? (
           <div>
-            <textarea 
+            <textarea
               className="comment_post_box"
               type="textarea"
               name="commentsTextInput"
