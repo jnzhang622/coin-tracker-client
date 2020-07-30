@@ -17,8 +17,6 @@ class App extends React.Component {
  }
 
 setUser = (user) => {
-  console.log(this.props)
-  console.log(user)
   if (user && user.message) {
    alert(user.message)
  } else if (user) {
@@ -30,6 +28,7 @@ setUser = (user) => {
     currentUser: user
  },()=> this.props.history.push('/coins'))
  }
+ console.log(this.state)
 }
 
   render() {

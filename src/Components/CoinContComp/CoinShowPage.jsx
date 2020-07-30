@@ -27,7 +27,8 @@ trackCoin = (event) => {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Accept": "application/json"
+      "Accept": "application/json",
+      Authorization: `Bearer ${this.props.currentUser[2]}`
     },
     body: JSON.stringify({
       user_name: this.state.user_name,
@@ -51,7 +52,8 @@ trackCoin = (event) => {
      method: "DELETE",
      headers: {
        "Content-Type": "application/json",
-       "Accept": "application/json"
+       "Accept": "application/json",
+        Authorization: `Bearer ${this.props.currentUser[2]}`
      },
      body: JSON.stringify({
        user_name: this.state.user_name,
