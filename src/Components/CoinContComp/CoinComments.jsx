@@ -53,21 +53,24 @@ class CoinComments extends React.Component {
     return (
       <div name="CommentsSection">
         <h2>Comments</h2>
+        <div className="">
         {
           this.state.comments.length > 0 ?
           this.state.comments.map((comment, index) =>
             <Comment key={comment.id} username={this.state.username} comment={comment}/>)
         : null
-        }
+          }
+        </div>
         {this.props.currentUser != null ? (
           <div>
-            <textarea
+            <textarea 
+              className="comment_post_box"
               type="textarea"
               name="commentsTextInput"
               value={this.state.textAreaInput}
               onChange={this.handleChange}
             />
-            <button onClick={(e)=> this.handleSubmit(e)}className="ui button" type="submit">
+            <button className="comment_post_box" onClick={(e)=> this.handleSubmit(e)}className="ui button" type="submit">
               Post
             </button>
           </div>
