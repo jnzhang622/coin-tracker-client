@@ -274,7 +274,8 @@ input[type=text], input[type=password], input[type=username]{
 }
 
 .comment_container{
-  border-spacing: 50px 50px;
+  margin-left: 10px;
+
 }
 
 .comment_box{
