@@ -11,15 +11,10 @@ class SearchBar extends React.Component {
           value={this.props.filter}
           onChange={this.props.handleChange}
         />
-        <label>
+        {/* <label>
           <strong>Sort:</strong>
-          {/* <select onChange={this.props.handleChange} name="sort"> */}
           {this.props.sortOptions}
-          {/* <option value="" >None</option>
-            <option value="price" >Price</option>
-            <option value="price_change_pct" >Price Change %</option> */}
-          {/* </select> */}
-        </label>
+        </label> */}
       </div>
     );
   }

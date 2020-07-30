@@ -42,7 +42,7 @@ class CoinComments extends React.Component {
           })
               .then(res => res.json())
               .then(data => {
-              console.log(data)
+              // console.log(data)
                 this.setState({
                   username: data[1],
                   comments: data[0],
@@ -52,7 +52,7 @@ class CoinComments extends React.Component {
           }
 
   render() {
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div name="CommentsSection">
         <div className="comment_container">

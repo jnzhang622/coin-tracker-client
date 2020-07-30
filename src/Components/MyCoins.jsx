@@ -32,7 +32,7 @@ class MyCoins extends React.Component {
 
   render(){
     if (this.props.currentUser && this.state.my_coins.length > 0) {
-      console.log(this.state)
+      // console.log(this.state)
     return(
       <>
        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
