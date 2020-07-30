@@ -14,7 +14,7 @@ class CoinContainer extends React.Component {
     }
 
     componentDidMount() {
-      console.log(this.props)
+    //   console.log(this.props)
       if (this.props.my_coins) {
          this.setState({ coins: this.props.my_coins })
       } else {
@@ -24,7 +24,7 @@ class CoinContainer extends React.Component {
       }
     }
     handleChange = (e) => {
-      console.log(e)
+    //   console.log(e)
         if (e.target.name === "sort") {
             this.setState({ sort: e.target.value, render100: 0 })
         }

@@ -18,10 +18,10 @@ import React from "react";
    console.log(this.props)
    console.log(this.state)
     return (
-      <div className="comment">
-        <p>{this.props.comment.comment}</p>
-        <p>by:{this.state.user.user_name}</p>
-         <p>posted on:{this.props.comment.created_at}</p>
+      <div className="comment_box">
+        <a className="comment_user_name">{this.state.user.user_name}  </a>
+        <a className="comment_timestamp">{this.props.comment.created_at}</a><br/>
+        <a className="comment_text">{this.props.comment.comment}</a>
       </div>
     );
   }

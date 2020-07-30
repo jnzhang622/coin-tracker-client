@@ -273,15 +273,34 @@ input[type=text], input[type=password], input[type=username]{
   opacity: 0.9;
 }
 
-/* .submit {
-  position: relative;
-  background-color: #e04b52;
-  border-radius: 5px;
-  height: 2rem;
-  width: max-content;
-  color: whitesmoke;
-  font-size: 18px;
-  justify-self: center;
-  font-family: monospace;
-  margin: 3px;
-} */
+.comment_container{
+  justify-content: center;
+}
+
+.comment_box{
+  border: solid;
+  border-color: #D6DBDF;
+  width: 500px;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.comment_user_name{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
+  font-weight: bold
+
+}
+.comment_timestamp{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: #808080
+
+}
+.comment_text{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: large;
+}
+.comment_post_box{
+  width: 500px;
+  height: 100px;
+}
