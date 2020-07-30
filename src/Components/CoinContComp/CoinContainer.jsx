@@ -34,15 +34,14 @@ class CoinContainer extends React.Component {
         else if (e.target.name === "cardDetails") {
             this.setState({ renderShowPage: !this.state.renderShowPage, setShowPage: e.target.value})
         }
-    }
-
-    nextCoin = () => {
-        if (this.state.render100 + 100 <= this.returnsArray().length)
-            this.setState(prevState => ({ render100: prevState.render100 + 100 }))
-    }
-    lastCoin = () => {
-        if (!this.state.render100 <= 0)
-            this.setState(prevState => ({ render100: prevState.render100 - 100 }))
+        else if (e.target.name === "next100") {
+            if (this.state.render100 + 100 <= this.returnsArray().length)
+                this.setState(prevState => ({ render100: prevState.render100 + 100 }))
+            }
+        else if (e.target.name === "last100") {
+            if (!this.state.render100 <= 0)
+                this.setState(prevState => ({ render100: prevState.render100 - 100 }))
+            }
     }
 
     returnsArray = () => {

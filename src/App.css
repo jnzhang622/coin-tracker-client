@@ -237,7 +237,7 @@ a:visited {
 }
 
 .navbar {
-  min-height: 25px;
+  min-height: 20px;
   background-color: aliceblue;
   display: flex;
   flex-direction: row;

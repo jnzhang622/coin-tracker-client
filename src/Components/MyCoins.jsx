@@ -32,7 +32,7 @@ class MyCoins extends React.Component {
 
   render(){
     if (this.props.currentUser && this.state.my_coins.length > 0) {
-      console.log(this.state)
+      // console.log(this.state)
     return(
       <>
        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
@@ -49,14 +49,14 @@ class MyCoins extends React.Component {
 
     return(
       <>
-      <h1>Welcome {this.props.currentUser[0].user_name}</h1>
-       <h1>Tracked coins will be displayed here...</h1>
+        <h1>Welcome {this.props.currentUser[0].user_name}</h1>
+        <h1>Tracked coins will be displayed here...</h1>
       </>
     )
   } else {
     return(
       <>
-       <h1>Please Sign up, or Log in to start tracking your favorite coins!</h1>
+        <h1>Please Sign up, or Log in to start tracking your favorite coins!</h1>
       </>
     )
   }
