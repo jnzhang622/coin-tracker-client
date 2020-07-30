@@ -1,5 +1,6 @@
 import React from "react";
 import Comment from './Comment';
+
 class CoinComments extends React.Component {
   state = {
     username: "",
@@ -14,8 +15,8 @@ class CoinComments extends React.Component {
 
   componentDidMount() {
     fetch(`http://localhost:3000/api/v1/coin_user_comments/${this.props.symbol}`)
-      .then((resp) => resp.json())
-      .then((arr) => {
+      .then(resp => resp.json())
+      .then(arr => {
         console.log(arr)
         this.setState({ comments: arr[0] });
       });
@@ -55,8 +56,8 @@ class CoinComments extends React.Component {
         {
           this.state.comments.length > 0 ?
           this.state.comments.map((comment, index) =>
-            <Comment key={comment.id} username={this.state.username} comment={comment}/>
-        ) : null
+            <Comment key={comment.id} username={this.state.username} comment={comment}/>)
+        : null
         }
         {this.props.currentUser != null ? (
           <div>
