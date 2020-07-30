@@ -134,8 +134,8 @@ class CoinContainer extends React.Component {
                           </div> 
                           <button className="render100_button" name="last100" onClick={this.handleChange}>Previous 100</button>
                           <button className="render100_button" name="next100" onClick={this.handleChange}>Next 100</button>
-                          <p>Showing {this.state.render100 + 1} - {(this.state.render100 + 100 > this.state.coins.length) ? 
-                          (this.state.coins.length) : (this.state.render100 + 100)} of {this.state.coins.length} coins</p>
+                          <p>Showing {this.state.render100 + 1} - {(this.state.render100 + 100 > this.returnsArray().length) ? 
+                          (this.returnsArray().length) : (this.state.render100 + 100)} of {this.returnsArray().length} coins</p>
                           <div className="cards">
                               {
                                   this.render100(this.returnsArray(), this.state.render100).map(coin => {
