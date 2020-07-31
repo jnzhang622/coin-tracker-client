@@ -66,7 +66,7 @@ console.log(this.props)
       if (data.errors) {
         alert(data.errors)
      } else {
-      //  console.log(data)
+       console.log(data)
        this.props.setUser(data)
      }
     })

@@ -10,7 +10,7 @@ class MyCoins extends React.Component {
 
  componentDidMount() {
   //  console.log(this.props.currentUser)
-   if (this.props.currentUser && this.props.currentUser[1].length > 0) {
+   if (this.props.currentUser && this.props.currentUser[1]) {
        let symbols = this.props.currentUser[1].map(coin => coin.symbol)
    fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}&ids=${symbols.join()}&interval=1d,30d&convert=USD`)
      .then(response => response.json())
@@ -24,9 +24,18 @@ class MyCoins extends React.Component {
 
  componentDidUpdate(prevProps){
    if (prevProps != this.props){
-
-     let newArr = this.props.currentUser[1]
-     this.setState({my_coins: newArr})
+     console.log("updating...")
+     let newCoins = []
+     let symbols = this.props.currentUser[1].map(coin => coin.symbol)
+     fetch(`https://api.nomics.com/v1/currencies/ticker?key=${process.env.REACT_APP_API_KEY}&ids=${symbols.join()}&interval=1d,30d&convert=USD`)
+     .then(response => response.json())
+     .then(data => {
+        let newCoins = []
+        newCoins = data
+        this.setState({my_coins: newCoins})
+     })
+     console.log(newCoins)
+     this.setState({my_coins: newCoins})
    }
  }
 
