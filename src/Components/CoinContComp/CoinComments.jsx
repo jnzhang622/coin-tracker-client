@@ -67,7 +67,7 @@ class CoinComments extends React.Component {
                 onChange={this.handleChange}
               />
               <button className="card_button"
-                onClick={(e) => this.handleSubmit(e)}
+                onClick={this.handleSubmit}
                 type="submit">
                   Post
               </button>
