@@ -54,7 +54,7 @@ class CoinComments extends React.Component {
   render() {
     // console.log(this.props)
     return (
-      <div name="CommentsSection">
+      <div name="CommentsSection" className="center">
         <div className="comment_container">
           <h2>Comments</h2>
           {this.props.currentUser != null ? (

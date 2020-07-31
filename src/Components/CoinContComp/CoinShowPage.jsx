@@ -127,13 +127,13 @@ render() {
         <div>
             <div>
                 <h1 className="showPage__title">{name}</h1><br/>
-                <div className="show_page_card__image">
-                    <img src={logo_url} alt={name} />
-                </div>
+                
             </div>
 
             <div className="side_by_side_Card">
-
+            <div className="show_page_card__image">
+              <img src={logo_url} alt={name} />
+            </div>
                 <div className="card__content">
                     <a className="showPage__info">Rank: {rank}</a>
                     <a className="showPage__info">Currency: {currency}</a>
@@ -153,7 +153,7 @@ render() {
                 </div>
 
                 {this.props.coin[0][`1d`] ?
-                        <div className="card__content">
+                      <div className="card__content">
                         <select onChange={this.handleChange} name="timeChange">
                             <option value="1d"> Daily Change</option>
                             <option value="7d">Weekly Change</option>
@@ -174,11 +174,14 @@ render() {
                     </div>
                     :
                 null}
-                <TradingViewWidget symbol={`${symbol}USD`}/>
-                </div>
+                
+            </div>
+
+
+          <div><TradingViewWidget symbol={`${symbol}USD`} /></div>
             <div>
 
-                <CoinComments currentUser={this.props.currentUser} symbol={this.props.coin[0].symbol}/>
+            <CoinComments currentUser={this.props.currentUser} symbol={this.props.coin[0].symbol}/>
             </div>
             <div className="center">
                 <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
