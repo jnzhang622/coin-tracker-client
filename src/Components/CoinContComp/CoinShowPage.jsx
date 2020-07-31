@@ -1,5 +1,6 @@
 import React from 'react';
 import CoinComments from './CoinComments';
+import TradingViewWidget from 'react-tradingview-widget';
 
 class CoinShowPage extends React.Component {
     state = {
@@ -126,15 +127,12 @@ render() {
         <div>
             <div>
                 <h1 className="showPage__title">{name}</h1><br/>
-                <a className="center">
-                    <button className="card_button" name="cardDetails" onClick={this.props.handleChange}>Go Back</button>
-                </a>
+                <div className="show_page_card__image">
+                    <img src={logo_url} alt={name} />
+                </div>
             </div>
 
             <div className="side_by_side_Card">
-                <div className="show_page_card__image">
-                <img src={logo_url} alt={name} />
-            </div>
 
                 <div className="card__content">
                     <a className="showPage__info">Rank: {rank}</a>
@@ -172,11 +170,14 @@ render() {
                             <a className="showPage__info">Market Cap Change: {market_cap_change}</a>
                             <a className="showPage__info">Market Cap Change %: {market_cap_change_pct}%</a>
                         </div>
+
                     </div>
                     :
                 null}
+                <TradingViewWidget symbol={`${symbol}USD`}/>
                 </div>
             <div>
+
                 <CoinComments currentUser={this.props.currentUser} symbol={this.props.coin[0].symbol}/>
             </div>
             <div className="center">

@@ -92,6 +92,10 @@
   filter: contrast(100%);
 }
 .show_page_card__image {
+    padding: 5px;
+  display: block;
+margin-left: auto;
+margin-right: auto;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -99,7 +103,7 @@
   border-top-right-radius: 0.25rem;
   overflow: hidden;
   position: relative;
-  width: 500px;
+  width: 250px;
 }
 
 .card__title {
