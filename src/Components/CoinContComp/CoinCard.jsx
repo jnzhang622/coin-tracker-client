@@ -42,6 +42,7 @@ class CoinCard extends React.Component {
           </div>
           <div className="card_detail_button">
             <button
+               className="show_details_button"
               name="cardDetails"
               value={name}
               onClick={this.props.handleChange}

@@ -26,11 +26,13 @@ class ExchCard extends React.Component {
       trade_volume_24h_btc,
       trade_volume_24h_btc_normalized,
     } = this.props.exchange;
+      let largeImg = image.replace('small', 'large')
+
     return (
       <li className="exchCards_item">
         <div className="side_by_side_Card">
           <div>
-            <img src={image} alt={name} className="exchCard__image" />
+            <img src={largeImg} alt={name} className="exchCard__image" />
             {/* <button className="card_button">Add to Watch</button> */}
           </div>
 

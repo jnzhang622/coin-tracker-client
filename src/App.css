@@ -165,8 +165,19 @@ margin-right: auto;
 
 .card_detail_button{
   text-align: center;
+
 }
 
+.show_details_button {
+  background-color: #febf63;
+  color: white;
+  padding: 1px 5px;
+  margin: 2px 1;
+  border: solid;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
 .container {
   padding: 1rem;
   width: stretch;

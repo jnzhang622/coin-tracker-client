@@ -2,7 +2,7 @@ import React from "react";
 
 const LogOut = (props) => {
   props.setUser(null);
-
+  localStorage.removeItem("user_id") 
   // console.log(props);
   return (
     <>

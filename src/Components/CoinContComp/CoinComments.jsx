@@ -19,7 +19,7 @@ class CoinComments extends React.Component {
         .then(data => {
            if (data[0] === "coin not found") {
             console.log(data)
-          } else {
+          } else { 
           this.setState({ comments: data[0] })
           }
          })

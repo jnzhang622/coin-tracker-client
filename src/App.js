@@ -15,6 +15,27 @@ class App extends React.Component {
    currentUser: null,
    coinShowPage: ""
  }
+componentDidMount(){
+  const user_id = localStorage.user_id
+
+  if (user_id) {
+   fetch("http://localhost:3000/api/v1/auto_login", {
+     headers: {
+       "Authorization": user_id
+     }
+   })
+   .then(res => res.json())
+   .then(response => {
+     if (response.errors){
+      alert(response.errors)
+    } else {
+       this.setUser(response)
+      }
+   })
+ }
+
+}
+
 
 setUser = (user) => {
   if (user && user.message) {
@@ -22,7 +43,10 @@ setUser = (user) => {
  } else if (user) {
    this.setState({
      currentUser: user
-  },()=> this.props.history.push('/my_coins'))
+  },()=> {
+    localStorage.user_id = user[0].id
+    this.props.history.push('/my_coins')
+  })
 } else {
   this.setState({
     currentUser: user
